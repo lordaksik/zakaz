@@ -27,6 +27,7 @@ bot.hears('/bot', async (ctx) => {
       if (arr.includes('red') = false) {
          ctx.reply("Чёрного цвета не было 10 раз");
       }
+    }
     function good(){
         ctx.reply('Бот запущен!')
        global.time= setInterval(request2,60000) 
