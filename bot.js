@@ -20,21 +20,21 @@ bot.hears('/bot', async (ctx) => {
       const data = await response.json()
       let arr = [];
       let arrs = [];
-      for (let i = 0; i <= 5; i++) {
+      for (let i = 0; i <= 10; i++) {
 
          colors = data.items.results[i].results[0].color
 
          arr.push(colors);
       }
       if (arr.includes('grey') === false) {
-         ctx.reply("Серого цвета не было 5 раз");
+         ctx.reply("Серого цвета не было 10 раз");
       }
       if (arr.includes('black') === false) {
-         ctx.reply("Чёрного цвета не было 5 раз");
+         ctx.reply("Чёрного цвета не было 10 раз");
       }
 
       if (arr.includes('red') === false) {
-         ctx.reply("Чёрного цвета не было 5 раз");
+         ctx.reply("Красного цвета не было 10 раз");
       }
 
 
