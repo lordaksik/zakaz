@@ -38,7 +38,7 @@ bot.hears('/bot', async (ctx) => {
    }
    function good() {
       ctx.reply('Бот отслежки запущен!')
-      global.time = setInterval(request2, 90000)
+      global.time = setInterval(request2, 20000)
    }
 
 
