@@ -25,9 +25,8 @@ bot.hears('/bot', async (ctx) => {
 
          arr.push(colors);
       }
-      if (arr.includes('grey') = false) {
-         ctx.reply("Серого цвета не было 18 раз");
-      }
+         ctx.reply(arr);
+      
          ctx.reply("Серог");
    }
    function good() {
