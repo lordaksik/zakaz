@@ -20,21 +20,21 @@ bot.hears('/bot', async (ctx) => {
       const data = await response.json()
       let arr = [];
       let arrs = [];
-      for (let i = 0; i <= 10; i++) {
+      for (let i = 0; i <= 5; i++) {
 
          colors = data.items.results[i].results[0].color
 
          arr.push(colors);
       }
       if (arr.includes('grey') === false) {
-         ctx.reply("Серого цвета не было 10 раз");
+         ctx.reply("Серого цвета не было 5 раз");
       }
       if (arr.includes('black') === false) {
-         ctx.reply("Чёрного цвета не было 10 раз");
+         ctx.reply("Чёрного цвета не было 5 раз");
       }
 
       if (arr.includes('red') === false) {
-         ctx.reply("Чёрного цвета не было 10 раз");
+         ctx.reply("Чёрного цвета не было 5 раз");
       }
 
 
@@ -46,37 +46,9 @@ bot.hears('/bot', async (ctx) => {
       else {
          global.firstch = 0;
       }
-      const response2 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/7/2/")
-      const data2 = await response2.json()
-      let arr2 = [];
 
-      for (let i = 0; i <= 29; i++) {
-
-         colors2 = data2.items.results[i].results[0].color
-
-         arr2.push(colors2);
-      }
-      if (arr2.includes('white') === true) { global.firstch2 = 2; }
-      else {
-         global.firstch2 = 0;
-      }
-      const response3 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/7/2/")
-      const data3 = await response3.json()
-      let arr3 = [];
-
-      for (let i = 0; i <= 29; i++) {
-
-         colors3 = data3.items.results[i].results[0].color
-
-         arr3.push(colors3);
-      }
-      if (arr3.includes('white') === true) { global.firstch3 = 2; }
-      else {
-         global.firstch3 = 0;
-      }
-
-      if (global.firstch === 0 && global.firstch2 === 0 && global.firstch3 === 0) {
-         ctx.reply("Кубка не было 90 раз");
+      if (global.firstch === 0) {
+         ctx.reply("Кубка не было 30 раз");
       }
 
 
