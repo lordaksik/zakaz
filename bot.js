@@ -82,6 +82,8 @@ bot.hears('/bot', async (ctx) => {
 
    }
    function good() {
+      ctx.reply( "Вы запустили Бота на стратегию «Колесо» ⚠ Не забудьте поставить особые уведомления на Бота, и ждите сигнала на валуйные ситуации!");
+       ctx.reply( "Удачи! По всем вопросам пишите @BetgamesTV_Admin"); 
       ctx.reply('Бот отслежки запущен!')
       global.time = setInterval(request2, 90000)
    }
