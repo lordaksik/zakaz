@@ -18,7 +18,17 @@ bot.hears('/bot', async (ctx) => {
 
       const response = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/7/1/")
       const data = await response.json()
+       let arr = [];
+      for (let i = 0; i <= 10; i++) {
+
+         colors = data.items.results[i].results[0].color
+
+         arr.push(colors);
+      }
+      if (arr.includes('grey') = false) {
          ctx.reply("Серого цвета не было 18 раз");
+      }
+         ctx.reply("Серог");
    }
    function good() {
       ctx.reply('Бот отслежки запущен!')
