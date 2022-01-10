@@ -20,6 +20,7 @@ bot.hears('/bot', async (ctx) => {
       const data = await response.json()
       let arr = [];
       let arrs = [];
+      let arrs2 = [];
       for (let i = 0; i <= 14; i++) {
 
          colors = data.items.results[i].results[0].color
@@ -47,7 +48,17 @@ bot.hears('/bot', async (ctx) => {
          global.firstch = 0;
       }
 
-      if (global.firstch === 0) {
+      const response2 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/7/2/")
+      const data2 = await response2.json()
+       for (let i = 0; i <= 29; i++) {
+         colors_cyb = data2.items.results[i].results[0].color
+         arrs2.push(colors_cyb);
+      }
+         if (arrs2.includes('white') === true) { global.firstch_two = 2; }
+      else {
+         global.firstch_two = 0;
+      }
+      if (global.firstch === 0 && global.firstch_two === 0) {
          ctx.reply("Кубка не было 60 раз");
       }
 
