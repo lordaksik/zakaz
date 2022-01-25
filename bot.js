@@ -20,24 +20,25 @@ bot.hears('/bot', async (ctx) => {
       let arrs2 = [];
       let kol=9;
       for (let i = 0; i <= kol; i++) {
-         number = data.items.results[i].results[0].number
-         if(parseInt(number, 10)<=10)
+         let number = data.items.results[i].results[0].number
+         if(number<10||number==10)
          {
             num=num+1;
          }
       }
-      if(kol===num){
+      if(num===10){
+         console.log(kol+" "+num)
          ctx.reply("Сектор с числом БОЛЬШЕ 9.5 не падал 10 раз");
       }
       for (let i = 0; i <= kol; i++) {
-         number2 = data.items.results[i].results[0].number
+         let number2 = data.items.results[i].results[0].number
          
-         if(parseInt(number2, 10)>=10)
+         if(number2>10)
          {
             num2=num2+1;
          }
       }
-      if(kol===num2){
+      if(num2==10){
          ctx.reply("Сектор с числом МЕНЬШЕ 9.5 не падал 10 раз");
       }
 
