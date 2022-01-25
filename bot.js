@@ -18,7 +18,7 @@ bot.hears('/bot', async (ctx) => {
       let num2=0;
       let arrs = [];
       let arrs2 = [];
-      let kol=2;
+      let kol=9;
       for (let i = 0; i <= kol; i++) {
          number = data.items.results[i].results[0].number
          if(number<=10)
