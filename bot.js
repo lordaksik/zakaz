@@ -7,20 +7,39 @@ bot.start((ctx) => {
    ctx.reply(`Привет ${ctx.message.from.first_name}`)
    console.log(ctx.message)
 })
-bot.help((ctx) => ctx.reply('Напиши /bot запустите сигнал при 4 минусах ' + '\n' +
-   'Напиши /bot5 запустите сигнал при 5 минусах' + '\n' +
-   'Напиши /bot3 запустите сигнал при 3 минусах' + '\n' +
-   'Чтобы вырубить бота по 4 минусам напишите /end ' + '\n' +
-   'Чтобы вырубить бота по 3 минусам напишите /end3' + '\n' +
-   'Чтобы вырубить бота по 5 минусам напишите /end5'))
+bot.help((ctx) => ctx.reply('Напиши /bot '))
 bot.hears('/bot', async (ctx) => {
    async function request2() {
 
       const response = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/7/1/")
       const data = await response.json()
       let arr = [];
+      let num=0;
+      let num2=0;
       let arrs = [];
       let arrs2 = [];
+      let kol=2;
+      for (let i = 0; i <= kol; i++) {
+         number = data.items.results[i].results[0].number
+         if(number<=10)
+         {
+            num=num+1;
+         }
+      }
+      if(kol===num){
+         ctx.reply("Сектор с числом БОЛЬШЕ 9.5 не падал 10 раз");
+      }
+      for (let i = 0; i <= kol; i++) {
+         number2 = data.items.results[i].results[0].number
+         if(number2<=10)
+         {
+            num2=num2+1;
+         }
+      }
+      if(kol===num2){
+         ctx.reply("Сектор с числом МЕНЬШЕ 9.5 не падал 10 раз");
+      }
+
       for (let i = 0; i <= 14; i++) {
 
          colors = data.items.results[i].results[0].color
