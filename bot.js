@@ -21,7 +21,7 @@ bot.hears('/bot', async (ctx) => {
       let kol=9;
       for (let i = 0; i <= kol; i++) {
          number = data.items.results[i].results[0].number
-         if(number<=10)
+         if(parseInt(number, 10)<=10)
          {
             num=num+1;
          }
@@ -31,8 +31,8 @@ bot.hears('/bot', async (ctx) => {
       }
       for (let i = 0; i <= kol; i++) {
          number2 = data.items.results[i].results[0].number
-         console.log(typeof number2)
-         if(number2>=10)
+         
+         if(parseInt(number2, 10)>=10)
          {
             num2=num2+1;
          }
