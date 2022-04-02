@@ -20,8 +20,9 @@ bot.hears('/bot', async (ctx) => {
       let arrs2 = [];
       let kol=9;
       for (let i = 0; i <= 0; i++) {
-         let number = data.items.results[i].results[0].number+data.items.results[i].results[1].number+data.items.results[i].results[2].number+data.items.results[i].results[3].number
-         +data.items.results[i].results[4].number+data.items.results[i].results[5].number+data.items.results[i].results[6].number
+         let number = parseInt(data.items.results[i].results[0].number,10)+parseInt(data.items.results[i].results[1].number,10)
+         +parseInt(data.items.results[i].results[2].number,10)+parseInt(data.items.results[i].results[3].number,10)
+         +parseInt(data.items.results[i].results[4].number,10)+parseInt(data.items.results[i].results[5].number,10)+parseInt(data.items.results[i].results[6].number,10)
          ctx.reply(number);
       }
        
