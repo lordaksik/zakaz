@@ -25,8 +25,6 @@ bot.hears('/bot', async (ctx) => {
        
       }
          ctx.reply(number);
-      }
-    
 
    }
    function good() {
