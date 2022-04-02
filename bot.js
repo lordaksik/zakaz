@@ -22,9 +22,9 @@ bot.hears('/bot', async (ctx) => {
       for (let i = 0; i <= 0; i++) {
          let number = data.items.results[i].results[0].number+data.items.results[i].results[1].number+data.items.results[i].results[2].number+data.items.results[i].results[3].number
          +data.items.results[i].results[4].number+data.items.results[i].results[5].number+data.items.results[i].results[6].number
-       
-      }
          ctx.reply(number);
+      }
+       
 
    }
    function good() {
