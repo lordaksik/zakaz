@@ -21,8 +21,7 @@ bot.hears('/bot', async (ctx) => {
       let kol=9;
       for (let i = 0; i <= 0; i++) {
          let number = parseInt(data.items.results[i].results[0].number,10)+parseInt(data.items.results[i].results[1].number,10)
-         +parseInt(data.items.results[i].results[2].number,10)+parseInt(data.items.results[i].results[3].number,10)
-         +parseInt(data.items.results[i].results[4].number,10)+parseInt(data.items.results[i].results[5].number,10)+parseInt(data.items.results[i].results[6].number,10)
+        
          ctx.reply(number);
       }
        
@@ -32,7 +31,7 @@ bot.hears('/bot', async (ctx) => {
       ctx.reply( "Вы запустили Бота на стратегию «Колесо» ⚠ Не забудьте поставить особые уведомления на Бота, и ждите сигнала на валуйные ситуации!");
        ctx.reply( "Удачи! По всем вопросам пишите @BetgamesTV_Admin"); 
       ctx.reply('Бот отслежки запущен!')
-      global.time = setInterval(request2, 20000)
+      global.time = setInterval(request2, 10000)
    }
 
 
