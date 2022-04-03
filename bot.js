@@ -22,7 +22,7 @@ bot.hears('/bot', async (ctx) => {
       let kol=9;
       let kol175=0,kol200=0;
       let kol100=0,kol125=0;
-      for (let i = 0; i <= 2; i++) {
+      for (let i = 0; i <= 3; i++) {
          number = parseInt(data.items.results[i].results[0].number,10)+parseInt(data.items.results[i].results[1].number,10)
          +parseInt(data.items.results[i].results[2].number,10)+parseInt(data.items.results[i].results[3].number,10)
          +parseInt(data.items.results[i].results[4].number,10)+parseInt(data.items.results[i].results[5].number,10)
@@ -45,23 +45,22 @@ bot.hears('/bot', async (ctx) => {
       kol100++;
       }  
       }
-      if(kol175===3)
+      if(kol175===0)
       {
       ctx.reply('число больше 175 не было 20 раз');
       }
-       if(kol200===3)
+       if(kol200===0)
       {
       ctx.reply('число больше 200 не было 20 раз');
       }
-        if(kol125===3)
+        if(kol125===0)
       {
       ctx.reply('число меньше 125 не было 20 раз');
       }
-       if(kol100===3)
+       if(kol100===0)
       {
       ctx.reply('число меньше 100 не было 20 раз');
       }
-ctx.reply(kol200);
    }
    function good() {
       ctx.reply( "Вы запустили Бота на стратегию «Колесо» ⚠ Не забудьте поставить особые уведомления на Бота, и ждите сигнала на валуйные ситуации!");
