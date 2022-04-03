@@ -62,7 +62,7 @@ bot.hears('/bot', async (ctx) => {
       {number=number+parseInt(data.items.results[i].results[0].number,10)}
          if(data.items.results[i].results[1].color===black)
       {number=number+parseInt(data.items.results[i].results[1].number,10)}
-         if(data.items.results[i].results[2].color===yellow)
+         if(data.items.results[i].results[2].color===black)
       {number=number+parseInt(data.items.results[i].results[2].number,10)}
          if(data.items.results[i].results[3].color===black)
       {number=number+parseInt(data.items.results[i].results[3].number,10)}
