@@ -24,7 +24,7 @@ bot.hears('/bot', async (ctx) => {
       let kol100=0,kol125=0;
       let color72=0,color74=0;
       let black72=0,black74=0;
-      for (let i = 0; i <= 9; i++) {
+      for (let i = 0; i <= 14; i++) {
       if(data.items.results[i].results[0].color==='yellow')
       {number=number+parseInt(data.items.results[i].results[0].number,10)}
          if(data.items.results[i].results[1].color==='yellow')
@@ -39,6 +39,7 @@ bot.hears('/bot', async (ctx) => {
       {number=number+parseInt(data.items.results[i].results[5].number,10)}
          if(data.items.results[i].results[6].color==='yellow')
       {number=number+parseInt(data.items.results[i].results[6].number,10)}
+         ctx.reply(number)
       if(number>73)
       {
      color74++;
@@ -58,7 +59,7 @@ bot.hears('/bot', async (ctx) => {
       ctx.reply('ЖЁЛТЫЕ меньше 73 не было 10 раз');
       }
       
-      for (let i = 0; i <= 9; i++) {
+      for (let i = 0; i <= 14; i++) {
       if(data.items.results[i].results[0].color==='black')
       {number=number+parseInt(data.items.results[i].results[0].number,10)}
          if(data.items.results[i].results[1].color==='black')
@@ -73,6 +74,7 @@ bot.hears('/bot', async (ctx) => {
       {number=number+parseInt(data.items.results[i].results[5].number,10)}
          if(data.items.results[i].results[6].color==='black')
       {number=number+parseInt(data.items.results[i].results[6].number,10)}
+         ctx.reply("vvod"+ number)
       if(number>73)
       {
      black74++;
@@ -84,11 +86,11 @@ bot.hears('/bot', async (ctx) => {
       }
       if(black74===0)
       {
-      ctx.reply('ЧЁРНЫХ больше 73 не было 10 раз');
+      ctx.reply('ЧЁРНЫХ больше 73 не было 15 раз');
       }
       if(black72===0)
       {
-      ctx.reply('ЧЁРНЫЕ меньше 73 не было 10 раз');
+      ctx.reply('ЧЁРНЫЕ меньше 73 не было 15 раз');
       }
       
       for (let i = 0; i <= 20; i++) {
