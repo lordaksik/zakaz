@@ -16,6 +16,8 @@ bot.hears('/bot', async (ctx) => {
       let arr = [];
       let num=0;
       let number=0;
+      let number2=0;
+      let number1=0;
       let num2=0;
       let arrs = [];
       let arrs2 = [];
@@ -24,27 +26,27 @@ bot.hears('/bot', async (ctx) => {
       let kol100=0,kol125=0;
       let color72=0,color74=0;
       let black72=0,black74=0;
-      for (let i = 0; i <= 3; i++) {
+      for (let i = 0; i <= 1; i++) {
       if(data.items.results[i].results[0].color==='yellow')
-      {number=number+parseInt(data.items.results[i].results[0].number,10)}
+      {number1=number1+parseInt(data.items.results[i].results[0].number,10)}
          if(data.items.results[i].results[1].color==='yellow')
-      {number=number+parseInt(data.items.results[i].results[1].number,10)}
+      {numbe1r=number1+parseInt(data.items.results[i].results[1].number,10)}
          if(data.items.results[i].results[2].color==='yellow')
-      {number=number+parseInt(data.items.results[i].results[2].number,10)}
+      {number1=number1+parseInt(data.items.results[i].results[2].number,10)}
          if(data.items.results[i].results[3].color==='yellow')
-      {number=number+parseInt(data.items.results[i].results[3].number,10)}
+      {number1=number1+parseInt(data.items.results[i].results[3].number,10)}
          if(data.items.results[i].results[4].color==='yellow')
-      {number=number+parseInt(data.items.results[i].results[4].number,10)}
+      {number1=number1+parseInt(data.items.results[i].results[4].number,10)}
          if(data.items.results[i].results[5].color==='yellow')
-      {number=number+parseInt(data.items.results[i].results[5].number,10)}
+      {number1=number1+parseInt(data.items.results[i].results[5].number,10)}
          if(data.items.results[i].results[6].color==='yellow')
-      {number=number+parseInt(data.items.results[i].results[6].number,10)}
+      {number1=number1+parseInt(data.items.results[i].results[6].number,10)}
      
-      if(number>73)
+      if(number1>73)
       {
      color74++;
       }
-         if(number<73)
+         if(number1<73)
       {
      color72++;
       }
@@ -59,27 +61,27 @@ bot.hears('/bot', async (ctx) => {
       ctx.reply('ЖЁЛТЫЕ меньше 73 не было 10 раз');
       }
       
-      for (let i = 0; i <= 3; i++) {
+      for (let i = 0; i <= 1; i++) {
       if(data.items.results[i].results[0].color==='black')
-      {number=number+parseInt(data.items.results[i].results[0].number,10)}
+      {number2=number2+parseInt(data.items.results[i].results[0].number,10)}
          if(data.items.results[i].results[1].color==='black')
-      {number=number+parseInt(data.items.results[i].results[1].number,10)}
+      {number2=number2+parseInt(data.items.results[i].results[1].number,10)}
          if(data.items.results[i].results[2].color==='black')
-      {number=number+parseInt(data.items.results[i].results[2].number,10)}
+      {number2=number2+parseInt(data.items.results[i].results[2].number,10)}
          if(data.items.results[i].results[3].color==='black')
-      {number=number+parseInt(data.items.results[i].results[3].number,10)}
+      {number2=number2+parseInt(data.items.results[i].results[3].number,10)}
          if(data.items.results[i].results[4].color==='black')
-      {number=number+parseInt(data.items.results[i].results[4].number,10)}
+      {number2=number2+parseInt(data.items.results[i].results[4].number,10)}
          if(data.items.results[i].results[5].color==='black')
-      {number=number+parseInt(data.items.results[i].results[5].number,10)}
+      {number2=number2+parseInt(data.items.results[i].results[5].number,10)}
          if(data.items.results[i].results[6].color==='black')
-      {number=number+parseInt(data.items.results[i].results[6].number,10)}
-         ctx.reply(number)
-      if(number>73)
+      {number2=number2+parseInt(data.items.results[i].results[6].number,10)}
+         ctx.reply(number2)
+      if(number2>73)
       {
      black74++;
       }
-         if(number<73)
+         if(number2<73)
       {
      black72++;
       }
