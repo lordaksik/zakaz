@@ -39,7 +39,7 @@ bot.hears('/bot', async (ctx) => {
       {number=number+parseInt(data.items.results[i].results[5].number,10)}
          if(data.items.results[i].results[6].color==='yellow')
       {number=number+parseInt(data.items.results[i].results[6].number,10)}
-         ctx.reply(number)
+     
       if(number>73)
       {
      color74++;
@@ -74,7 +74,7 @@ bot.hears('/bot', async (ctx) => {
       {number=number+parseInt(data.items.results[i].results[5].number,10)}
          if(data.items.results[i].results[6].color==='black')
       {number=number+parseInt(data.items.results[i].results[6].number,10)}
-         ctx.reply("vvod"+ number)
+         ctx.reply(number)
       if(number>73)
       {
      black74++;
