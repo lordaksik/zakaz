@@ -25,19 +25,19 @@ bot.hears('/bot', async (ctx) => {
       let color72=0,color74=0;
       let black72=0,black74=0;
       for (let i = 0; i <= 0; i++) {
-      if(data.items.results[i].results[0].color===yellow)
+      if(data.items.results[i].results[0].color==='yellow')
       {number=number+parseInt(data.items.results[i].results[0].number,10)}
-         if(data.items.results[i].results[1].color===yellow)
+         if(data.items.results[i].results[1].color==='yellow')
       {number=number+parseInt(data.items.results[i].results[1].number,10)}
-         if(data.items.results[i].results[2].color===yellow)
+         if(data.items.results[i].results[2].color==='yellow')
       {number=number+parseInt(data.items.results[i].results[2].number,10)}
-         if(data.items.results[i].results[3].color===yellow)
+         if(data.items.results[i].results[3].color==='yellow')
       {number=number+parseInt(data.items.results[i].results[3].number,10)}
-         if(data.items.results[i].results[4].color===yellow)
+         if(data.items.results[i].results[4].color==='yellow')
       {number=number+parseInt(data.items.results[i].results[4].number,10)}
-         if(data.items.results[i].results[5].color===yellow)
+         if(data.items.results[i].results[5].color==='yellow')
       {number=number+parseInt(data.items.results[i].results[5].number,10)}
-         if(data.items.results[i].results[6].color===yellow)
+         if(data.items.results[i].results[6].color==='yellow')
       {number=number+parseInt(data.items.results[i].results[6].number,10)}
       if(number>73)
       {
@@ -58,19 +58,19 @@ bot.hears('/bot', async (ctx) => {
       }
       
       for (let i = 0; i <= 0; i++) {
-      if(data.items.results[i].results[0].color===black)
+      if(data.items.results[i].results[0].color==='black')
       {number=number+parseInt(data.items.results[i].results[0].number,10)}
-         if(data.items.results[i].results[1].color===black)
+         if(data.items.results[i].results[1].color==='black')
       {number=number+parseInt(data.items.results[i].results[1].number,10)}
-         if(data.items.results[i].results[2].color===black)
+         if(data.items.results[i].results[2].color==='black')
       {number=number+parseInt(data.items.results[i].results[2].number,10)}
-         if(data.items.results[i].results[3].color===black)
+         if(data.items.results[i].results[3].color==='black')
       {number=number+parseInt(data.items.results[i].results[3].number,10)}
-         if(data.items.results[i].results[4].color===black)
+         if(data.items.results[i].results[4].color==='black')
       {number=number+parseInt(data.items.results[i].results[4].number,10)}
-         if(data.items.results[i].results[5].color===black)
+         if(data.items.results[i].results[5].color==='black')
       {number=number+parseInt(data.items.results[i].results[5].number,10)}
-         if(data.items.results[i].results[6].color===black)
+         if(data.items.results[i].results[6].color==='black')
       {number=number+parseInt(data.items.results[i].results[6].number,10)}
       if(number>73)
       {
