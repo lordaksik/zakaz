@@ -22,12 +22,79 @@ bot.hears('/bot', async (ctx) => {
       let kol=9;
       let kol175=0,kol200=0;
       let kol100=0,kol125=0;
-      for (let i = 0; i <= 3; i++) {
+      let color72=0,color74=0;
+      let black72=0,black74=0;
+      for (let i = 0; i <= 0; i++) {
+      if(data.items.results[i].results[0].color===yellow)
+      {number=number+parseInt(data.items.results[i].results[0].number,10)}
+         if(data.items.results[i].results[1].color===yellow)
+      {number=number+parseInt(data.items.results[i].results[1].number,10)}
+         if(data.items.results[i].results[2].color===yellow)
+      {number=number+parseInt(data.items.results[i].results[2].number,10)}
+         if(data.items.results[i].results[3].color===yellow)
+      {number=number+parseInt(data.items.results[i].results[3].number,10)}
+         if(data.items.results[i].results[4].color===yellow)
+      {number=number+parseInt(data.items.results[i].results[4].number,10)}
+         if(data.items.results[i].results[5].color===yellow)
+      {number=number+parseInt(data.items.results[i].results[5].number,10)}
+         if(data.items.results[i].results[6].color===yellow)
+      {number=number+parseInt(data.items.results[i].results[6].number,10)}
+      if(number>73)
+      {
+     color74++;
+      }
+         if(number<73)
+      {
+     color72++;
+      }
+      }
+      if(color74===0)
+      {
+      ctx.reply('ЖЁЛТЫЕ больше 73');
+      }
+      if(color72===0)
+      {
+      ctx.reply('ЖЁЛТЫЕ меньше 73');
+      }
+      
+      for (let i = 0; i <= 0; i++) {
+      if(data.items.results[i].results[0].color===black)
+      {number=number+parseInt(data.items.results[i].results[0].number,10)}
+         if(data.items.results[i].results[1].color===black)
+      {number=number+parseInt(data.items.results[i].results[1].number,10)}
+         if(data.items.results[i].results[2].color===yellow)
+      {number=number+parseInt(data.items.results[i].results[2].number,10)}
+         if(data.items.results[i].results[3].color===black)
+      {number=number+parseInt(data.items.results[i].results[3].number,10)}
+         if(data.items.results[i].results[4].color===black)
+      {number=number+parseInt(data.items.results[i].results[4].number,10)}
+         if(data.items.results[i].results[5].color===black)
+      {number=number+parseInt(data.items.results[i].results[5].number,10)}
+         if(data.items.results[i].results[6].color===black)
+      {number=number+parseInt(data.items.results[i].results[6].number,10)}
+      if(number>73)
+      {
+     black74++;
+      }
+         if(number<73)
+      {
+     black72++;
+      }
+      }
+      if(black74===0)
+      {
+      ctx.reply('ЧЁРНЫХ больше 73');
+      }
+      if(black72===0)
+      {
+      ctx.reply('ЧЁРНЫЕ меньше 73');
+      }
+      
+      for (let i = 0; i <= 10; i++) {
          number = parseInt(data.items.results[i].results[0].number,10)+parseInt(data.items.results[i].results[1].number,10)
          +parseInt(data.items.results[i].results[2].number,10)+parseInt(data.items.results[i].results[3].number,10)
          +parseInt(data.items.results[i].results[4].number,10)+parseInt(data.items.results[i].results[5].number,10)
          +parseInt(data.items.results[i].results[6].number,10)
-         ctx.reply(number);
          if(number>175)
       {
      kol175++;
@@ -47,19 +114,19 @@ bot.hears('/bot', async (ctx) => {
       }
       if(kol175===0)
       {
-      ctx.reply('число больше 175 не было 20 раз');
+      ctx.reply('число больше 175 не было 10 раз');
       }
        if(kol200===0)
       {
-      ctx.reply('число больше 200 не было 20 раз');
+      ctx.reply('число больше 200 не было 10 раз');
       }
         if(kol125===0)
       {
-      ctx.reply('число меньше 125 не было 20 раз');
+      ctx.reply('число меньше 125 не было 10 раз');
       }
        if(kol100===0)
       {
-      ctx.reply('число меньше 100 не было 20 раз');
+      ctx.reply('число меньше 100 не было 10 раз');
       }
    }
    function good() {
