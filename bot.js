@@ -20,29 +20,44 @@ bot.hears('/bot', async (ctx) => {
       let arrs = [];
       let arrs2 = [];
       let kol=9;
-      let kol175,kol200;
-      let kol100,kol125;
-      for (let i = 0; i <= 0; i++) {
+      let kol175=0,kol200=0;
+      let kol100=0,kol125=0;
+      for (let i = 0; i <= 3; i++) {
          number = parseInt(data.items.results[i].results[0].number,10)+parseInt(data.items.results[i].results[1].number,10)
          +parseInt(data.items.results[i].results[2].number,10)+parseInt(data.items.results[i].results[3].number,10)
          +parseInt(data.items.results[i].results[4].number,10)+parseInt(data.items.results[i].results[5].number,10)
          +parseInt(data.items.results[i].results[6].number,10)
-        
-      }
-       ctx.reply(number);
-      if(number>175)
+         if(number>175)
       {
-      ctx.reply('число больше 175 не было 20 раз');
+     kol175++;
       }
        if(number>200)
       {
-      ctx.reply('число больше 200 не было 20 раз');
+      kol200++;
       }
         if(number<125)
       {
-      ctx.reply('число меньше 125 не было 20 раз');
+     kol125++;
       }
        if(number<100)
+      {
+      kol100++;
+      }  
+      }
+       ctx.reply(number);
+      if(kol175=4)
+      {
+      ctx.reply('число больше 175 не было 20 раз');
+      }
+       if(kol200=4)
+      {
+      ctx.reply('число больше 200 не было 20 раз');
+      }
+        if(kol125=4)
+      {
+      ctx.reply('число меньше 125 не было 20 раз');
+      }
+       if(kol100=4)
       {
       ctx.reply('число меньше 100 не было 20 раз');
       }
