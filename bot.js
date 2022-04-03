@@ -47,14 +47,15 @@ bot.hears('/bot', async (ctx) => {
       {
      color72++;
       }
+         ctx.reply(number);
       }
       if(color74===0)
       {
-      ctx.reply('ЖЁЛТЫЕ больше 73');
+      ctx.reply('ЖЁЛТЫЕ больше 73 не было 10 раз');
       }
       if(color72===0)
       {
-      ctx.reply('ЖЁЛТЫЕ меньше 73');
+      ctx.reply('ЖЁЛТЫЕ меньше 73 не было 10 раз');
       }
       
       for (let i = 0; i <= 0; i++) {
@@ -83,11 +84,11 @@ bot.hears('/bot', async (ctx) => {
       }
       if(black74===0)
       {
-      ctx.reply('ЧЁРНЫХ больше 73');
+      ctx.reply('ЧЁРНЫХ больше 73 не было 10 раз');
       }
       if(black72===0)
       {
-      ctx.reply('ЧЁРНЫЕ меньше 73');
+      ctx.reply('ЧЁРНЫЕ меньше 73 не было 10 раз');
       }
       
       for (let i = 0; i <= 10; i++) {
@@ -133,7 +134,7 @@ bot.hears('/bot', async (ctx) => {
       ctx.reply( "Вы запустили Бота на стратегию «Колесо» ⚠ Не забудьте поставить особые уведомления на Бота, и ждите сигнала на валуйные ситуации!");
        ctx.reply( "Удачи! По всем вопросам пишите @BetgamesTV_Admin"); 
       ctx.reply('Бот отслежки запущен!')
-      global.time = setInterval(request2, 10000)
+      global.time = setInterval(request2, 20000)
    }
 
 
