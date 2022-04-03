@@ -27,6 +27,7 @@ bot.hears('/bot', async (ctx) => {
          +parseInt(data.items.results[i].results[2].number,10)+parseInt(data.items.results[i].results[3].number,10)
          +parseInt(data.items.results[i].results[4].number,10)+parseInt(data.items.results[i].results[5].number,10)
          +parseInt(data.items.results[i].results[6].number,10)
+         ctx.reply(number);
          if(number>175)
       {
      kol175++;
@@ -44,7 +45,6 @@ bot.hears('/bot', async (ctx) => {
       kol100++;
       }  
       }
-       ctx.reply(number);
       if(kol175=4)
       {
       ctx.reply('число больше 175 не было 20 раз');
