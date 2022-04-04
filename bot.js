@@ -95,7 +95,7 @@ bot.hears('/bot', async (ctx) => {
       ctx.reply('ЧЁРНЫЕ меньше 73 не было 10 раз');
       }
       
-      for (let i = 0; i <= 20; i++) {
+      for (let i = 0; i <= 14; i++) {
          number = parseInt(data.items.results[i].results[0].number,10)+parseInt(data.items.results[i].results[1].number,10)
          +parseInt(data.items.results[i].results[2].number,10)+parseInt(data.items.results[i].results[3].number,10)
          +parseInt(data.items.results[i].results[4].number,10)+parseInt(data.items.results[i].results[5].number,10)
@@ -119,26 +119,26 @@ bot.hears('/bot', async (ctx) => {
       }
       if(kol175===0)
       {
-      ctx.reply('число больше 175 не было 20 раз');
+      ctx.reply('число больше 175 не было 15 раз');
       }
        if(kol200===0)
       {
-      ctx.reply('число больше 200 не было 20 раз');
+      ctx.reply('число больше 200 не было 15 раз');
       }
         if(kol125===0)
       {
-      ctx.reply('число меньше 125 не было 20 раз');
+      ctx.reply('число меньше 125 не было 15 раз');
       }
        if(kol100===0)
       {
-      ctx.reply('число меньше 100 не было 20 раз');
+      ctx.reply('число меньше 100 не было 15 раз');
       }
    }
    function good() {
       ctx.reply( "Вы запустили Бота на стратегию «Колесо» ⚠ Не забудьте поставить особые уведомления на Бота, и ждите сигнала на валуйные ситуации!");
        ctx.reply( "Удачи! По всем вопросам пишите @BetgamesTV_Admin"); 
       ctx.reply('Бот отслежки запущен!')
-      global.time = setInterval(request2, 40000)
+      global.time = setInterval(request2, 230000)
    }
 
 
