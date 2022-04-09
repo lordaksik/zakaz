@@ -22,6 +22,7 @@ bot.hears('/bot', async (ctx) => {
       let number1=0;
       let number11=0;
       let number12=0;
+      let num1=0;
       let num2=0;
       let arrs = [];
       let arrs2 = [];
@@ -54,7 +55,7 @@ bot.hears('/bot', async (ctx) => {
       {
      color72++;
       }
-       
+       number1=0;
       }
       if(color74===0)
       {
