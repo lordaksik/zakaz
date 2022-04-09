@@ -13,11 +13,15 @@ bot.hears('/bot', async (ctx) => {
 
       const response = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/1/1/")
       const data = await response.json()
+      const response2 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/1/2/")
+      const data2 = await response2.json()
       let arr = [];
       let num=0;
       let number=0;
       let number2=0;
       let number1=0;
+      let number11=0;
+      let number12=0;
       let num2=0;
       let arrs = [];
       let arrs2 = [];
@@ -95,7 +99,7 @@ bot.hears('/bot', async (ctx) => {
       ctx.reply('ЧЁРНЫЕ меньше 73 не было 10 раз');
       }
       
-      for (let i = 0; i <= 14; i++) {
+      for (let i = 0; i <= 19; i++) {
          number = parseInt(data.items.results[i].results[0].number,10)+parseInt(data.items.results[i].results[1].number,10)
          +parseInt(data.items.results[i].results[2].number,10)+parseInt(data.items.results[i].results[3].number,10)
          +parseInt(data.items.results[i].results[4].number,10)+parseInt(data.items.results[i].results[5].number,10)
@@ -104,35 +108,60 @@ bot.hears('/bot', async (ctx) => {
       {
      kol175++;
       }
-       if(number>200)
-      {
-      kol200++;
-      }
+      
         if(number<125)
       {
      kol125++;
-      }
-       if(number<100)
-      {
-      kol100++;
-      }  
-      }
+      } 
+   }
       if(kol175===0)
       {
-      ctx.reply('число больше 175 не было 15 раз');
-      }
-       if(kol200===0)
-      {
-      ctx.reply('число больше 200 не было 15 раз');
+      ctx.reply('число больше 175 не было 20 раз');
       }
         if(kol125===0)
       {
-      ctx.reply('число меньше 125 не было 15 раз');
+      ctx.reply('число меньше 125 не было 20 раз');
       }
-       if(kol100===0)
+      
+       for (let i = 0; i <= 29; i++) {
+         number11 = parseInt(data.items.results[i].results[0].number,10)+parseInt(data.items.results[i].results[1].number,10)
+         +parseInt(data.items.results[i].results[2].number,10)+parseInt(data.items.results[i].results[3].number,10)
+         +parseInt(data.items.results[i].results[4].number,10)+parseInt(data.items.results[i].results[5].number,10)
+         +parseInt(data.items.results[i].results[6].number,10)
+         if(number11>200)
       {
-      ctx.reply('число меньше 100 не было 15 раз');
+     kol200++;
       }
+      
+        if(number11<100)
+      {
+     kol100++;
+      } 
+   }
+          for (let i = 0; i <= 29; i++) {
+         number12 = parseInt(data2.items.results[i].results[0].number,10)+parseInt(data2.items.results[i].results[1].number,10)
+         +parseInt(data2.items.results[i].results[2].number,10)+parseInt(data2.items.results[i].results[3].number,10)
+         +parseInt(data2.items.results[i].results[4].number,10)+parseInt(data2.items.results[i].results[5].number,10)
+         +parseInt(data2.items.results[i].results[6].number,10)
+         if(number12>200)
+      {
+     kol200++;
+      }
+      
+        if(number12<100)
+      {
+     kol100++;
+      } 
+   }
+      if(kol200===0)
+      {
+      ctx.reply('число больше 200 не было 60 раз');
+      }
+        if(kol100===0)
+      {
+      ctx.reply('число меньше 100 не было 60 раз');
+      }
+      
    }
    function good() {
       ctx.reply( "Вы запустили Бота на стратегию «Колесо» ⚠ Не забудьте поставить особые уведомления на Бота, и ждите сигнала на валуйные ситуации!");
