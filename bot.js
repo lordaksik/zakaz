@@ -45,7 +45,7 @@ bot.hears('/bot', async (ctx) => {
       {number1=number1+parseInt(data.items.results[i].results[5].number,10)}
          if(data.items.results[i].results[6].color==='yellow')
       {number1=number1+parseInt(data.items.results[i].results[6].number,10)}
-     
+     console.log(number1)
       if(number1>73)
       {
      color74++;
@@ -167,7 +167,7 @@ bot.hears('/bot', async (ctx) => {
       ctx.reply( "Вы запустили Бота на стратегию «7/42» ⚠ Не забудьте поставить особые уведомления на Бота, и ждите сигнала на валуйные ситуации!");
        ctx.reply( "Удачи! По всем вопросам пишите @BetgamesTV_Admin"); 
       ctx.reply('Бот отслежки запущен!')
-      global.time = setInterval(request2, 230000)
+      global.time = setInterval(request2, 60000)
    }
 
 
