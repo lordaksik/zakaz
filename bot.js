@@ -46,7 +46,6 @@ bot.hears('/bot', async (ctx) => {
       {number1=number1+parseInt(data.items.results[i].results[5].number,10)}
          if(data.items.results[i].results[6].color==='yellow')
       {number1=number1+parseInt(data.items.results[i].results[6].number,10)}
-     console.log(number1)
       if(number1>73)
       {
      color74++;
@@ -90,6 +89,7 @@ bot.hears('/bot', async (ctx) => {
       {
      black72++;
       }
+         number2=0
       }
       if(black74===0)
       {
