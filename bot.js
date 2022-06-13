@@ -341,13 +341,17 @@ bot.hears('/bot', async (ctx) => {
       const data = await response.json()
       const response2 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-30-09/8/2/")
       const data2 = await response2.json()
+        const response3 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-30-09/8/3/")
+      const data3 = await response3.json()
       let result = 0;
       let result2 = 0;
       let result3 = 0;
       let result4 = 0;
      let result44 = 0;
+       let result444 = 0;
       let result5 = 0;
      let result55 = 0;
+      let result555 = 0;
      let result33 = 0;
     let mast1=0;
     let mast2=0;
@@ -355,7 +359,7 @@ bot.hears('/bot', async (ctx) => {
     let mast4=0;
       score_dealer = data.items.results[0].results.score_dealer
   
-      for (let i = 0; i <= 19; i++) {
+      for (let i = 0; i <= 29; i++) {
           score_dealer = data.items.results[i].results.score_dealer
           score_player = data.items.results[i].results.score_player
           // console.log("игрок " + score_player + " "+ score_dealer +" дилер")
@@ -366,9 +370,9 @@ bot.hears('/bot', async (ctx) => {
       }
   
       if (result == 0)
-     { ctx.reply( 'Больших кэфов давно не было 20 минут');}
+     { ctx.reply( 'Больших кэфов давно не было 30 минут');}
      
-      for (let i = 0; i <= 24; i++) {
+      for (let i = 0; i <= 29; i++) {
          score_dealer = data.items.results[i].results.score_dealer
          score_player = data.items.results[i].results.score_player
          if ((score_player == 8) || (score_dealer == 8))
@@ -377,7 +381,7 @@ bot.hears('/bot', async (ctx) => {
      }
     
      if (result2 == 0)
-    {ctx.reply( 'Не было 8 уже 25 раздач');}
+    {ctx.reply( 'Не было 8 уже 30 раздач');}
 
     for (let i = 0; i <= 29; i++) {
       score_dealer = data.items.results[i].results.score_dealer
@@ -393,8 +397,15 @@ bot.hears('/bot', async (ctx) => {
          { result44 = result44 + 1;}
       
   }
-  if (result44 === 0 && result4 === 0)
- {ctx.reply( 'Не было 8 у игрока уже 60 минут (вертикаль)');}
+          for (let i = 0; i <= 19; i++) {
+      score_dealer3 = data3.items.results[i].results.score_dealer
+      score_player3 = data3.items.results[i].results.score_player
+      if (score_player3 == 8)
+         { result444 = result444 + 1;}
+      
+  }
+  if (result44 === 0 && result4 === 0 && result444 === 0)
+ {ctx.reply( 'Не было 8 у игрока уже 80 минут (вертикаль)');}
  for (let i = 0; i <= 29; i++) {
   score_dealer = data.items.results[i].results.score_dealer
   score_player = data.items.results[i].results.score_player
@@ -407,10 +418,15 @@ bot.hears('/bot', async (ctx) => {
   if (score_dealer2 == 8)
       {result55 = result55 + 1;}
 }
+ for (let i = 0; i <= 19; i++) {
+  score_dealer3 = data3.items.results[i].results.score_dealer
+  score_player3 = data3.items.results[i].results.score_player
+  if (score_dealer3 == 8)
+      {result555 = result555 + 1;}
+}
 
-
-if (result5 === 0&& result55 === 0)
-{ctx.reply( 'Не было 8 у дилера уже 60 минут (вертикаль)');}
+if (result5 === 0 && result55 === 0 && result555 === 0)
+{ctx.reply( 'Не было 8 у дилера уже 80 минут (вертикаль)');}
      for (let i = 0; i <= 29; i++) {
          score_dealer = data.items.results[i].results.score_dealer
          score_player = data.items.results[i].results.score_player
@@ -429,7 +445,7 @@ if (result5 === 0&& result55 === 0)
      if (result3 === 0 && result33 === 0)
     { ctx.reply( 'Не было ничьи 60 минут');}
     
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < 15; i++) {
         score_dealer = data.items.results[i].results.card_dealer.suit
         score_player = data.items.results[i].results.card_player.suit
         
@@ -444,21 +460,21 @@ if (result5 === 0&& result55 === 0)
   
     }
     
-    if(mast1===12)
-    {ctx.reply('Буби не было 12 раздач')}
+    if(mast1===15)
+    {ctx.reply('Буби не было 15 раздач')}
     //diamonds- буби
     //clubs - крести
     //spades - пики
     //hearts - чирва
     //
-   if(mast2===12)
-   {ctx.reply('Крести не было 12 раздач')}
+   if(mast2===15)
+   {ctx.reply('Крести не было 15 раздач')}
   
-   if(mast3===12)
-   {ctx.reply('Пики не было 12 раздач')}
+   if(mast5===12)
+   {ctx.reply('Пики не было 15 раздач')}
    
-   if(mast4===12)
-   {ctx.reply('Чирвы не было 12 раздач')}
+   if(mast5===15)
+   {ctx.reply('Чирвы не было 15 раздач')}
   
 } catch(err) {
     console.log(err);    
