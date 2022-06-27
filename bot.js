@@ -359,7 +359,7 @@ bot.hears('/bot', async (ctx) => {
     let mast4=0;
       score_dealer = data.items.results[0].results.score_dealer
   
-      for (let i = 0; i <= 29; i++) {
+      for (let i = 0; i <= 24; i++) {
           score_dealer = data.items.results[i].results.score_dealer
           score_player = data.items.results[i].results.score_player
           // console.log("игрок " + score_player + " "+ score_dealer +" дилер")
@@ -370,7 +370,7 @@ bot.hears('/bot', async (ctx) => {
       }
   
       if (result == 0)
-     { ctx.reply( 'Больших кэфов давно не было 30 минут');}
+     { ctx.reply( 'Больших кэфов давно не было 25 минут');}
      
       for (let i = 0; i <= 29; i++) {
          score_dealer = data.items.results[i].results.score_dealer
@@ -397,7 +397,7 @@ bot.hears('/bot', async (ctx) => {
          { result44 = result44 + 1;}
       
   }
-          for (let i = 0; i <= 19; i++) {
+          for (let i = 0; i <= 29; i++) {
       score_dealer3 = data3.items.results[i].results.score_dealer
       score_player3 = data3.items.results[i].results.score_player
       if (score_player3 == 8)
@@ -405,7 +405,7 @@ bot.hears('/bot', async (ctx) => {
       
   }
   if (result44 === 0 && result4 === 0 && result444 === 0)
- {ctx.reply( 'Не было 8 у игрока уже 80 минут (вертикаль)');}
+ {ctx.reply( 'Не было 8 у игрока уже 90 минут (вертикаль)');}
  for (let i = 0; i <= 29; i++) {
   score_dealer = data.items.results[i].results.score_dealer
   score_player = data.items.results[i].results.score_player
@@ -418,7 +418,7 @@ bot.hears('/bot', async (ctx) => {
   if (score_dealer2 == 8)
       {result55 = result55 + 1;}
 }
- for (let i = 0; i <= 19; i++) {
+ for (let i = 0; i <= 29; i++) {
   score_dealer3 = data3.items.results[i].results.score_dealer
   score_player3 = data3.items.results[i].results.score_player
   if (score_dealer3 == 8)
@@ -426,7 +426,7 @@ bot.hears('/bot', async (ctx) => {
 }
 
 if (result5 === 0 && result55 === 0 && result555 === 0)
-{ctx.reply( 'Не было 8 у дилера уже 80 минут (вертикаль)');}
+{ctx.reply( 'Не было 8 у дилера уже 90 минут (вертикаль)');}
      for (let i = 0; i <= 29; i++) {
          score_dealer = data.items.results[i].results.score_dealer
          score_player = data.items.results[i].results.score_player
@@ -453,7 +453,7 @@ if (result5 === 0 && result55 === 0 && result555 === 0)
      if (result3 === 0 && result33 === 0  && result334 === 0)
     { ctx.reply( 'Не было ничьи 90 минут');}
     
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 12; i++) {
         score_dealer = data.items.results[i].results.card_dealer.suit
         score_player = data.items.results[i].results.card_player.suit
         
@@ -468,21 +468,21 @@ if (result5 === 0 && result55 === 0 && result555 === 0)
   
     }
     
-    if(mast1===15)
-    {ctx.reply('Буби не было 15 раздач')}
+    if(mast1===12)
+    {ctx.reply('Буби не было 12 раздач')}
     //diamonds- буби
     //clubs - крести
     //spades - пики
     //hearts - чирва
     //
-   if(mast2===15)
-   {ctx.reply('Крести не было 15 раздач')}
+   if(mast2===12)
+   {ctx.reply('Крести не было 12 раздач')}
   
    if(mast5===12)
-   {ctx.reply('Пики не было 15 раздач')}
+   {ctx.reply('Пики не было 12 раздач')}
    
-   if(mast5===15)
-   {ctx.reply('Чирвы не было 15 раздач')}
+   if(mast5===12)
+   {ctx.reply('Чирвы не было 12 раздач')}
   
 } catch(err) {
     console.log(err);    
