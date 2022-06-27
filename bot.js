@@ -442,8 +442,16 @@ if (result5 === 0 && result55 === 0 && result555 === 0)
          if (score_player2 === score_dealer2)
             { result33 = result33 + 1;}
      }
-     if (result3 === 0 && result33 === 0)
-    { ctx.reply( 'Не было ничьи 60 минут');}
+      var result334=0;
+        for (let i = 0; i <= 29; i++) {
+         score_dealer3 = data3.items.results[i].results.score_dealer
+         score_player3 = data3.items.results[i].results.score_player
+ 
+         if (score_player3 === score_dealer3)
+            { result334 = result334 + 1;}
+     }
+     if (result3 === 0 && result33 === 0  && result334 === 0)
+    { ctx.reply( 'Не было ничьи 90 минут');}
     
     for (let i = 0; i < 15; i++) {
         score_dealer = data.items.results[i].results.card_dealer.suit
