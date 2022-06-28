@@ -1,14 +1,104 @@
-request()
-sevenSorok();
-kosti()
+require('dotenv').config();
+const { Telegraf } = require('telegraf')
+const fetch = require('node-fetch');
 
+const bot = new Telegraf(process.env.BOT_TOKEN || 8080)
+bot.start((ctx) => {
+   ctx.reply(`Привет ${ctx.message.from.first_name}`)
+   console.log(ctx.message)
+})
+bot.help((ctx) => ctx.reply('Напиши /bot '))
+bot.hears('/bot', async (ctx) => {
+async function fartuna() {
+    try {
+        var col = 0;
+        var col2 = 0;
+        var col3 = 0;
+        var kyb = 0;
+        var kyb2 = 0;
+        var kyb3 = 0;
+        const response = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/7/1/")
+        const data = await response.json()
+        const response2 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/7/2/")
+        const data2 = await response2.json()
+        const response3 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/7/3/")
+        const data3 = await response3.json()
+        for (let i = 0; i <= 17; i++) {
+            colors = data.items.results[i].results[0].color
+            if (colors === 'grey') { col++ }
+            if (colors === 'black') { col2++ }
+            if (colors === 'red') { col3++ }
+        }
+        if (col===0) {
+            ctx.reply("Серого цвета не было 18 раз");
+        }
+        if (col2===0) {
+            ctx.reply("Чёрного цвета не было 18 раз");
+        }
+        if (col3===0) {
+            ctx.reply("Красного цвета не было 18 раз");
+        }
+        for (let i = 0; i <= 29; i++) {
+            colors = data.items.results[i].results[0].color
+            if (colors === 'white') { kyb++ }  
+        }
+        for (let i = 0; i <= 29; i++) {
+            colors2 = data2.items.results[i].results[0].color
+            if (colors2 === 'white') { kyb2++ }  
+        }
+        for (let i = 0; i <= 29; i++) {
+            colors3 = data3.items.results[i].results[0].color
+            if (colors3 === 'white') { kyb3++ }  
+        }
+        if (kyb===0 && kyb2===0 && kyb3===0) {
+            ctx.reply("Кубка не было 90 раз");
+        }
+  
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
 async function kosti() {
     try {
         const response = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/10/1/")
         const data = await response.json()
         var win = 0;
         var vs = 0;
+        var total = 0;
+        var total2 = 0;
+        var total3 = 0;
+        var total4 = 0;
         var win2 = 0;
+        for (let i = 0; i <= 9; i++) {
+            number = data.items.results[i].results[0].number
+            number2 = data.items.results[i].results[1].number
+            if (parseInt(number, 10) > 3) {
+                total++;
+            }
+            if (parseInt(number, 10) < 3) {
+                total2++;
+            }
+            if (parseInt(number2, 10) > 3) {
+                total3++;
+            }
+            if (parseInt(number2, 10) < 3) {
+                total4++;
+            }
+        }
+        if (total === 10) {
+            console.log("КРАСНЫЙ больше 3, 10 раз подряд");
+        }
+        if (total2 === 10) {
+            console.log("КРАСНЫЙ меньше 3, 10 раз подряд");
+        }
+        if (total3 === 10) {
+            console.log("СИНИЙ больше 3, 10 раз подряд");
+        }
+        if (total4 === 10) {
+            console.log("СИНИЙ меньше 3, 10 раз подряд");
+        }
+
         for (let i = 0; i <= 9; i++) {
             number = data.items.results[i].results[0].number
             number2 = data.items.results[i].results[1].number
@@ -25,16 +115,16 @@ async function kosti() {
         if (win2 === 10) {
             console.log("СИНИЙ победил 10 раз подряд");
         }
-       for (let i = 0; i <= 24; i++) {
-          number = data.items.results[i].results[0].number
-          number2 = data.items.results[i].results[1].number
-          if (parseInt(number, 10) === parseInt(number2, 10)) {
-             vs++;
-          }
-       }
-       if (win === 25) {
-          console.log("Ничьи не было 25 раз");
-       }
+        for (let i = 0; i <= 24; i++) {
+            number = data.items.results[i].results[0].number
+            number2 = data.items.results[i].results[1].number
+            if (parseInt(number, 10) === parseInt(number2, 10)) {
+                vs++;
+            }
+        }
+        if (win === 25) {
+            console.log("Ничьи не было 25 раз");
+        }
 
     } catch (err) {
         console.log(err);
@@ -241,6 +331,30 @@ async function request() {
         console.log(err);
     }
 }
+function good() {
+    ctx.reply( "Вы запустили Бота на стратегию «Мегабот» ⚠ Не забудьте поставить особые уведомления на Бота, и ждите сигнала на валуйные ситуации!");
+     ctx.reply( "Удачи! По всем вопросам пишите @BetgamesTV_Admin"); 
+    ctx.reply('Бот отслежки запущен!')
+    global.time = setInterval(request, 40000)
+    global.time2 = setInterval(sevenSorok, 240000)
+    global.time3 = setInterval(kosti, 45000)
+    global.time4 = setInterval(fartuna, 90000)
+ }
+ good()
+}
+)
+bot.hears('/end', async (ctx) => {
 
-
-
+    try {
+       clearInterval(time);
+       clearInterval(time2);
+       clearInterval(time3);
+       clearInterval(time4);
+ 
+       ctx.reply("Пока");
+    } catch (err) {
+       ctx.reply("Пока");
+    }
+ })
+ 
+ bot.launch()
