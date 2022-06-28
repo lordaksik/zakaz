@@ -7,6 +7,7 @@ async function kosti() {
         const response = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/10/1/")
         const data = await response.json()
         var win = 0;
+        var vs = 0;
         var win2 = 0;
         for (let i = 0; i <= 9; i++) {
             number = data.items.results[i].results[0].number
@@ -24,6 +25,16 @@ async function kosti() {
         if (win2 === 10) {
             console.log("СИНИЙ победил 10 раз подряд");
         }
+       for (let i = 0; i <= 24; i++) {
+          number = data.items.results[i].results[0].number
+          number2 = data.items.results[i].results[1].number
+          if (parseInt(number, 10) === parseInt(number2, 10)) {
+             vs++;
+          }
+       }
+       if (win === 25) {
+          console.log("Ничьи не было 25 раз");
+       }
 
     } catch (err) {
         console.log(err);
