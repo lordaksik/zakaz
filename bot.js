@@ -56,7 +56,7 @@ async function fartuna() {
   
     }
     catch (err) {
-        console.log(err);
+        ctx.reply(err);
     }
 }
 async function kosti() {
@@ -87,16 +87,16 @@ async function kosti() {
             }
         }
         if (total === 10) {
-            console.log("КРАСНЫЙ больше 3, 10 раз подряд");
+             ctx.reply("КРАСНЫЙ больше 3, 10 раз подряд");
         }
         if (total2 === 10) {
-            console.log("КРАСНЫЙ меньше 3, 10 раз подряд");
+             ctx.reply("КРАСНЫЙ меньше 3, 10 раз подряд");
         }
         if (total3 === 10) {
-            console.log("СИНИЙ больше 3, 10 раз подряд");
+             ctx.reply("СИНИЙ больше 3, 10 раз подряд");
         }
         if (total4 === 10) {
-            console.log("СИНИЙ меньше 3, 10 раз подряд");
+             ctx.reply("СИНИЙ меньше 3, 10 раз подряд");
         }
 
         for (let i = 0; i <= 9; i++) {
@@ -110,10 +110,10 @@ async function kosti() {
             }
         }
         if (win === 10) {
-            console.log("КРАСНЫЙ победил 10 раз подряд");
+             ctx.reply("КРАСНЫЙ победил 10 раз подряд");
         }
         if (win2 === 10) {
-            console.log("СИНИЙ победил 10 раз подряд");
+            ctx.reply("СИНИЙ победил 10 раз подряд");
         }
         for (let i = 0; i <= 24; i++) {
             number = data.items.results[i].results[0].number
@@ -123,11 +123,11 @@ async function kosti() {
             }
         }
         if (win === 25) {
-            console.log("Ничьи не было 25 раз");
+            ctx.reply("Ничьи не было 25 раз");
         }
 
     } catch (err) {
-        console.log(err);
+        ctx.reply(err);
     }
 }
 
@@ -154,10 +154,10 @@ async function sevenSorok() {
             }
         }
         if (kol175 === 0) {
-            console.log('число больше 175 не было 20 раз');
+            ctx.reply('число больше 175 не было 20 раз');
         }
         if (kol125 === 0) {
-            console.log('число меньше 125 не было 20 раз');
+             ctx.reply('число меньше 125 не было 20 раз');
         }
         for (let i = 0; i <= 29; i++) {
             number11 = parseInt(data.items.results[i].results[0].number, 10) + parseInt(data.items.results[i].results[1].number, 10)
@@ -186,13 +186,13 @@ async function sevenSorok() {
             }
         }
         if (kol200 === 0) {
-            console.log('число больше 200 не было 60 раз');
+             ctx.reply('число больше 200 не было 60 раз');
         }
         if (kol100 === 0) {
-            console.log('число меньше 100 не было 60 раз');
+            ctx.reply('число меньше 100 не было 60 раз');
         }
     } catch (err) {
-        console.log(err);
+        ctx.reply(err);
     }
 }
 
@@ -228,7 +228,7 @@ async function request() {
         }
         console.log(typeof score_dealer)
         if (result === 0) {
-            console.log('Больших кэфов давно не было 20 минут');
+             ctx.reply('Больших кэфов давно не было 20 минут');
         }
 
         for (let i = 0; i <= 29; i++) {
@@ -241,7 +241,7 @@ async function request() {
         }
 
         if (result2 === 0) {
-            console.log('Не было 8 уже 30 раздач');
+             ctx.reply('Не было 8 уже 30 раздач');
         }
 
         for (let i = 0; i <= 29; i++) {
@@ -269,7 +269,7 @@ async function request() {
 
         }
         if (result44 === 0 && result4 === 0 && result444 === 0) {
-            console.log('Не было 8 у игрока уже 90 минут (вертикаль)');
+             ctx.reply('Не было 8 у игрока уже 90 минут (вертикаль)');
         }
         for (let i = 0; i <= 29; i++) {
             score_dealer = data.items.results[i].results.score_dealer
@@ -294,7 +294,7 @@ async function request() {
         }
 
         if (result5 === 0 && result55 === 0 && result555 === 0) {
-            console.log('Не было 8 у дилера уже 90 минут (вертикаль)');
+             ctx.reply('Не было 8 у дилера уже 90 минут (вертикаль)');
         }
         for (let i = 0; i <= 29; i++) {
             score_dealer = data.items.results[i].results.score_dealer
@@ -323,12 +323,12 @@ async function request() {
             }
         }
         if (result3 === 0 && result33 === 0 && result334 === 0) {
-            console.log('Не было ничьи 90 минут');
+            ctx.reply('Не было ничьи 90 минут');
         }
 
 
     } catch (err) {
-        console.log(err);
+         ctx.reply(err);
     }
 }
 function good() {
