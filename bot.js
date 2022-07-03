@@ -142,7 +142,7 @@ async function sevenSorok() {
         let kol175 = 0, kol200 = 0;
         let kol100 = 0, kol125 = 0;
 
-        for (let i = 0; i <= 19; i++) {
+        for (let i = 0; i <= 24; i++) {
             number = parseInt(data.items.results[i].results[0].number, 10) + parseInt(data.items.results[i].results[1].number, 10)
                 + parseInt(data.items.results[i].results[2].number, 10) + parseInt(data.items.results[i].results[3].number, 10)
                 + parseInt(data.items.results[i].results[4].number, 10) + parseInt(data.items.results[i].results[5].number, 10)
@@ -156,10 +156,10 @@ async function sevenSorok() {
             }
         }
         if (kol175 === 0) {
-            ctx.reply('(7-42) число больше 175 не было 20 раз');
+            ctx.reply('(7-42) число больше 175 не было 25 раз');
         }
         if (kol125 === 0) {
-             ctx.reply('(7-42) число меньше 125 не было 20 раз');
+             ctx.reply('(7-42) число меньше 125 не было 25 раз');
         }
         for (let i = 0; i <= 29; i++) {
             number11 = parseInt(data.items.results[i].results[0].number, 10) + parseInt(data.items.results[i].results[1].number, 10)
