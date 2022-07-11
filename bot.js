@@ -9,6 +9,142 @@ bot.start((ctx) => {
 })
 bot.help((ctx) => ctx.reply('Напиши /bot '))
 bot.hears('/bot', async (ctx) => {
+   async function poker(){
+try{
+    const response = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/12/1/")
+    const data = await response.json()
+    const response2 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/12/2/")
+    const data2 = await response2.json()
+    const response3 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/12/3/")
+    const data3 = await response3.json()
+    const response4 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/12/4/")
+    const data4 = await response4.json()
+    const response5 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/12/5/")
+    const data5 = await response5.json()
+    
+
+    let two_pairs=0,one_pair=0,straight=0,three_of_a_kind=0,full_house=0,flush1=0,flush2=0,split=0,player=0;
+    for (let i = 0; i <= 29; i++) {
+        let hand=data.items.results[i].results.results.winners[0];
+
+        if(hand==="split"){
+            split++
+        }
+    }
+    if(split===0){
+        ctx.reply(' 30 раздач нет Сплита')
+    }
+    for (let i = 0; i <= 7; i++) {
+        let hand=data.items.results[i].results.results.winners[0];
+        if(hand==="player"){
+            player++
+        }
+    }
+    if(player===0){
+        ctx.reply(' 8 раздач игрок не выигрывал')
+    }
+
+    for (let i = 0; i <= 11; i++) {
+        let hand=data.items.results[i].results.results.hand;
+        if(hand==="two_pairs"){
+            two_pairs++
+        }
+    }
+    if(two_pairs===0){
+        ctx.reply(' 12 раздач нет двух пар')
+    }
+    for (let i = 0; i <= 19; i++) {
+        let hand=data.items.results[i].results.results.hand;
+        if(hand==="one_pair"){
+            one_pair++
+        }
+    }
+    if(one_pair===0){
+        ctx.reply(' 20 раздач нет одной пары')
+    }
+
+    for (let i = 0; i <= 13; i++) {
+        let hand=data.items.results[i].results.results.hand;
+        if(hand==="straight"){
+            straight++
+        }
+    }
+    if(straight===0){
+        ctx.reply(' 13 раздач нет Стрита')
+    }
+    for (let i = 0; i <= 21; i++) {
+        let hand=data.items.results[i].results.results.hand;
+        if(hand==="three_of_a_kind"){
+            three_of_a_kind++
+        }
+    }
+    if(three_of_a_kind===0){
+       ctx.reply(' 22 раздач нет Сета')
+    }
+
+    for (let i = 0; i <= 19; i++) {
+        let hand=data.items.results[i].results.results.hand;
+        if(hand==="full_house"){
+            full_house++
+        }
+    }
+    if(full_house===0){
+        ctx.reply(' 20 раздач нет Фул-хауса')
+    }
+
+    for (let i = 0; i <= 29; i++) {
+        let hand=data.items.results[i].results.results.hand;
+        if(hand==="flush"){
+            flush1++
+        }
+    }
+    for (let i = 0; i <= 9; i++) {
+        let hand2=data2.items.results[i].results.results.hand;
+        if(hand2==="flush"){
+            flush2++
+        }
+    }
+    if(flush1===0 && flush2===0){
+        ctx.reply(' 40 раздач нет Флэша')
+    }
+    let four_of_a_kind=0,four_of_a_kind2=0,four_of_a_kind3=0,four_of_a_kind4=0,four_of_a_kind5=0;
+    for (let i = 0; i <= 29; i++) {
+        let hand1=data.items.results[i].results.results.hand;
+        if(hand1==="four_of_a_kind"){
+            four_of_a_kind++
+        }
+    }
+    for (let i = 0; i <= 29; i++) {
+        let hand2=data2.items.results[i].results.results.hand;
+        if(hand2==="four_of_a_kind"){
+            four_of_a_kind2++
+        }
+    }
+    for (let i = 0; i <= 29; i++) {
+        let hand3=data3.items.results[i].results.results.hand;
+        if(hand3==="four_of_a_kind"){
+            four_of_a_kind3++
+        }
+    }
+    for (let i = 0; i <= 29; i++) {
+        let hand4=data4.items.results[i].results.results.hand;
+        if(hand4==="four_of_a_kind"){
+            four_of_a_kind4++
+        }
+    }
+    for (let i = 0; i <= 9; i++) {
+        let hand5=data5.items.results[i].results.results.hand;
+        if(hand5==="four_of_a_kind"){
+            four_of_a_kind5++
+        }
+    }
+    if(four_of_a_kind===0 && four_of_a_kind2===0 && four_of_a_kind3===0 && four_of_a_kind4===0 && four_of_a_kind5===0){
+        ctx.reply(' 130 раздач нет Каре')
+    }
+} catch (err) {
+    console.log(err);
+}
+}
 async function fartuna() {
     try {
         var col = 0;
@@ -56,8 +192,7 @@ async function fartuna() {
   
     }
     catch (err) {
-        ctx.reply(err);
-        ctx.reply('fartyna');
+       console.log(err)
     }
 }
 async function kosti() {
@@ -128,8 +263,7 @@ async function kosti() {
         }
 
     } catch (err) {
-        ctx.reply(err);
-       ctx.reply('kosti');
+      console.log(err);
     }
 }
 
@@ -194,8 +328,7 @@ async function sevenSorok() {
             ctx.reply('(7-42) число меньше 100 не было 60 раз');
         }
     } catch (err) {
-        ctx.reply(err);
-          ctx.reply('7-42');
+        console.log(err)
     }
 }
 
@@ -331,8 +464,7 @@ async function request() {
 
 
     } catch (err) {
-         ctx.reply(err);
-            ctx.reply('fait');
+       console.log(err)
     }
 }
 function good() {
@@ -343,6 +475,7 @@ function good() {
     global.time2 = setInterval(sevenSorok, 240000)
     global.time3 = setInterval(kosti, 45000)
     global.time4 = setInterval(fartuna, 90000)
+    global.time5 = setInterval(poker, 100000)
  }
  good()
 }
@@ -354,7 +487,7 @@ bot.hears('/end', async (ctx) => {
        clearInterval(time2);
        clearInterval(time3);
        clearInterval(time4);
- 
+      clearInterval(time5);
        ctx.reply("Пока");
     } catch (err) {
        ctx.reply("Пока");
