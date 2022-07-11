@@ -98,14 +98,14 @@ try{
             flush1++
         }
     }
-    for (let i = 0; i <= 9; i++) {
+    for (let i = 0; i <= 29; i++) {
         let hand2=data2.items.results[i].results.results.hand;
         if(hand2==="flush"){
             flush2++
         }
     }
     if(flush1===0 && flush2===0){
-        ctx.reply(' 40 раздач нет Флэша')
+        ctx.reply(' 60 раздач нет Флэша')
     }
     let four_of_a_kind=0,four_of_a_kind2=0,four_of_a_kind3=0,four_of_a_kind4=0,four_of_a_kind5=0;
     for (let i = 0; i <= 29; i++) {
