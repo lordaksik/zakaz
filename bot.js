@@ -53,24 +53,24 @@ try{
     if(two_pairs===0){
         ctx.reply(' 12 раздач нет двух пар')
     }
-    for (let i = 0; i <= 19; i++) {
+    for (let i = 0; i <= 29; i++) {
         let hand=data.items.results[i].results.results.hand;
         if(hand==="one_pair"){
             one_pair++
         }
     }
     if(one_pair===0){
-        ctx.reply(' 20 раздач нет одной пары')
+        ctx.reply(' 30 раздач нет одной пары')
     }
 
-    for (let i = 0; i <= 13; i++) {
+    for (let i = 0; i <= 14; i++) {
         let hand=data.items.results[i].results.results.hand;
         if(hand==="straight"){
             straight++
         }
     }
     if(straight===0){
-        ctx.reply(' 13 раздач нет Стрита')
+        ctx.reply(' 15 раздач нет Стрита')
     }
     for (let i = 0; i <= 21; i++) {
         let hand=data.items.results[i].results.results.hand;
@@ -104,8 +104,15 @@ try{
             flush2++
         }
     }
-    if(flush1===0 && flush2===0){
-        ctx.reply(' 60 раздач нет Флэша')
+   let flush3=0;
+   for (let i = 0; i <= 29; i++) {
+        let hand3=data3.items.results[i].results.results.hand;
+        if(hand3==="flush"){
+            flush3++
+        }
+    }
+    if(flush1===0 && flush2===0 && flush3===0){
+        ctx.reply(' 90 раздач нет Флэша')
     }
     let four_of_a_kind=0,four_of_a_kind2=0,four_of_a_kind3=0,four_of_a_kind4=0,four_of_a_kind5=0;
     for (let i = 0; i <= 29; i++) {
@@ -132,14 +139,14 @@ try{
             four_of_a_kind4++
         }
     }
-    for (let i = 0; i <= 9; i++) {
+    for (let i = 0; i <= 29; i++) {
         let hand5=data5.items.results[i].results.results.hand;
         if(hand5==="four_of_a_kind"){
             four_of_a_kind5++
         }
     }
     if(four_of_a_kind===0 && four_of_a_kind2===0 && four_of_a_kind3===0 && four_of_a_kind4===0 && four_of_a_kind5===0){
-        ctx.reply(' 130 раздач нет Каре')
+        ctx.reply(' 150 раздач нет Каре')
     }
 } catch (err) {
     console.log(err);
