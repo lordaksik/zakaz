@@ -146,7 +146,7 @@ try{
         }
     }
     if(four_of_a_kind===0 && four_of_a_kind2===0 && four_of_a_kind3===0 && four_of_a_kind4===0 && four_of_a_kind5===0){
-        ctx.reply(' 150 раздач нет Каре')
+      //  ctx.reply(' 150 раздач нет Каре')
     }
 } catch (err) {
     console.log(err);
