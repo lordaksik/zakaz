@@ -63,33 +63,33 @@ try{
         ctx.reply(' 30 раздач нет одной пары')
     }
 
-    for (let i = 0; i <= 14; i++) {
+    for (let i = 0; i <= 19; i++) {
         let hand=data.items.results[i].results.results.hand;
         if(hand==="straight"){
             straight++
         }
     }
     if(straight===0){
-        ctx.reply(' 15 раздач нет Стрита')
+        ctx.reply(' 20 раздач нет Стрита')
     }
-    for (let i = 0; i <= 21; i++) {
+    for (let i = 0; i <= 29; i++) {
         let hand=data.items.results[i].results.results.hand;
         if(hand==="three_of_a_kind"){
             three_of_a_kind++
         }
     }
     if(three_of_a_kind===0){
-       ctx.reply(' 22 раздач нет Сета')
+       ctx.reply(' 30 раздач нет Сета')
     }
 
-    for (let i = 0; i <= 19; i++) {
+    for (let i = 0; i <= 29; i++) {
         let hand=data.items.results[i].results.results.hand;
         if(hand==="full_house"){
             full_house++
         }
     }
     if(full_house===0){
-        ctx.reply(' 20 раздач нет Фул-хауса')
+        ctx.reply(' 30 раздач нет Фул-хауса')
     }
 
     for (let i = 0; i <= 29; i++) {
