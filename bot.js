@@ -34,24 +34,24 @@ try{
     if(split===0){
         ctx.reply(' 30 раздач нет Сплита')
     }
-    for (let i = 0; i <= 7; i++) {
+    for (let i = 0; i <= 11; i++) {
         let hand=data.items.results[i].results.results.winners[0];
         if(hand==="player"){
             player++
         }
     }
     if(player===0){
-        ctx.reply(' 8 раздач игрок не выигрывал')
+        ctx.reply(' 12 раздач игрок не выигрывал')
     }
 
-    for (let i = 0; i <= 11; i++) {
+    for (let i = 0; i <= 17; i++) {
         let hand=data.items.results[i].results.results.hand;
         if(hand==="two_pairs"){
             two_pairs++
         }
     }
     if(two_pairs===0){
-        ctx.reply(' 12 раздач нет двух пар')
+        ctx.reply(' 18 раздач нет двух пар')
     }
     for (let i = 0; i <= 29; i++) {
         let hand=data.items.results[i].results.results.hand;
@@ -78,8 +78,22 @@ try{
             three_of_a_kind++
         }
     }
-    if(three_of_a_kind===0){
-       ctx.reply(' 30 раздач нет Сета')
+   var three_of_a_kind2=0;
+    for (let i = 0; i <= 29; i++) {
+        let hand2=data2.items.results[i].results.results.hand;
+        if(hand2==="three_of_a_kind"){
+            three_of_a_kind2++
+        }
+    }
+   var three_of_a_kind3=0;
+    for (let i = 0; i <= 19; i++) {
+        let hand3=data3.items.results[i].results.results.hand;
+        if(hand3==="three_of_a_kind"){
+            three_of_a_kind3++
+        }
+    }
+    if(three_of_a_kind===0 && three_of_a_kind2===0 && three_of_a_kind3===0){
+       ctx.reply(' 80 раздач нет Сета')
     }
 
     for (let i = 0; i <= 29; i++) {
@@ -88,8 +102,22 @@ try{
             full_house++
         }
     }
-    if(full_house===0){
-        ctx.reply(' 30 раздач нет Фул-хауса')
+   var full_house2=0;
+   for (let i = 0; i <= 29; i++) {
+        let hand2=data2.items.results[i].results.results.hand;
+        if(hand2==="full_house"){
+            full_house2++
+        }
+    }
+   var full_house3=0;
+   for (let i = 0; i <= 19; i++) {
+        let hand3=data.items.results[i].results.results.hand;
+        if(hand3==="full_house"){
+            full_house3++
+        }
+    }
+    if(full_house===0 && full_house2===0 && full_house3===0){
+        ctx.reply(' 80 раздач нет Фул-хауса')
     }
 
     for (let i = 0; i <= 29; i++) {
@@ -115,39 +143,7 @@ try{
         ctx.reply(' 90 раздач нет Флэша')
     }
     let four_of_a_kind=0,four_of_a_kind2=0,four_of_a_kind3=0,four_of_a_kind4=0,four_of_a_kind5=0;
-    for (let i = 0; i <= 29; i++) {
-        let hand1=data.items.results[i].results.results.hand;
-        if(hand1==="four_of_a_kind"){
-            four_of_a_kind++
-        }
-    }
-    for (let i = 0; i <= 29; i++) {
-        let hand2=data2.items.results[i].results.results.hand;
-        if(hand2==="four_of_a_kind"){
-            four_of_a_kind2++
-        }
-    }
-    for (let i = 0; i <= 29; i++) {
-        let hand3=data3.items.results[i].results.results.hand;
-        if(hand3==="four_of_a_kind"){
-            four_of_a_kind3++
-        }
-    }
-    for (let i = 0; i <= 29; i++) {
-        let hand4=data4.items.results[i].results.results.hand;
-        if(hand4==="four_of_a_kind"){
-            four_of_a_kind4++
-        }
-    }
-    for (let i = 0; i <= 29; i++) {
-        let hand5=data5.items.results[i].results.results.hand;
-        if(hand5==="four_of_a_kind"){
-            four_of_a_kind5++
-        }
-    }
-    if(four_of_a_kind===0 && four_of_a_kind2===0 && four_of_a_kind3===0 && four_of_a_kind4===0 && four_of_a_kind5===0){
-      //  ctx.reply(' 150 раздач нет Каре')
-    }
+  
 } catch (err) {
     console.log(err);
 }
@@ -213,7 +209,7 @@ async function kosti() {
         var total3 = 0;
         var total4 = 0;
         var win2 = 0;
-        for (let i = 0; i <= 9; i++) {
+        for (let i = 0; i <= 11; i++) {
             number = data.items.results[i].results[0].number
             number2 = data.items.results[i].results[1].number
             if (parseInt(number, 10) > 3) {
@@ -229,20 +225,20 @@ async function kosti() {
                 total4++;
             }
         }
-        if (total === 10) {
-             ctx.reply("(Кости) КРАСНЫЙ больше 3, 10 раз подряд");
+        if (total === 12) {
+             ctx.reply("(Кости) КРАСНЫЙ больше 3, 12 раз подряд");
         }
-        if (total2 === 10) {
-             ctx.reply("(Кости) КРАСНЫЙ меньше 3, 10 раз подряд");
+        if (total2 === 12) {
+             ctx.reply("(Кости) КРАСНЫЙ меньше 3, 12 раз подряд");
         }
-        if (total3 === 10) {
-             ctx.reply("(Кости) СИНИЙ больше 3, 10 раз подряд");
+        if (total3 === 12) {
+             ctx.reply("(Кости) СИНИЙ больше 3, 12 раз подряд");
         }
-        if (total4 === 10) {
-             ctx.reply("(Кости) СИНИЙ меньше 3, 10 раз подряд");
+        if (total4 === 12) {
+             ctx.reply("(Кости) СИНИЙ меньше 3, 12 раз подряд");
         }
 
-        for (let i = 0; i <= 9; i++) {
+        for (let i = 0; i <= 11; i++) {
             number = data.items.results[i].results[0].number
             number2 = data.items.results[i].results[1].number
             if (parseInt(number, 10) > parseInt(number2, 10)) {
@@ -252,21 +248,21 @@ async function kosti() {
                 win2++;
             }
         }
-        if (win === 10) {
-             ctx.reply("(Кости) КРАСНЫЙ победил 10 раз подряд");
+        if (win === 12) {
+             ctx.reply("(Кости) КРАСНЫЙ победил 12 раз подряд");
         }
-        if (win2 === 10) {
-            ctx.reply("(Кости) СИНИЙ победил 10 раз подряд");
+        if (win2 === 12) {
+            ctx.reply("(Кости) СИНИЙ победил 12 раз подряд");
         }
-        for (let i = 0; i <= 24; i++) {
+        for (let i = 0; i <= 19; i++) {
             number = data.items.results[i].results[0].number
             number2 = data.items.results[i].results[1].number
             if (parseInt(number, 10) === parseInt(number2, 10)) {
                 vs++;
             }
         }
-        if (win === 25) {
-            ctx.reply("(Кости) Ничьи не было 25 раз");
+        if (win === 20) {
+            ctx.reply("(Кости) Ничьи не было 20 раз");
         }
 
     } catch (err) {
@@ -280,10 +276,12 @@ async function sevenSorok() {
         const data = await response.json()
         const response2 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/1/2/")
         const data2 = await response2.json()
+        const response3 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/1/3/")
+        const data3 = await response3.json()
         let kol175 = 0, kol200 = 0;
         let kol100 = 0, kol125 = 0;
 
-        for (let i = 0; i <= 24; i++) {
+        for (let i = 0; i <= 29; i++) {
             number = parseInt(data.items.results[i].results[0].number, 10) + parseInt(data.items.results[i].results[1].number, 10)
                 + parseInt(data.items.results[i].results[2].number, 10) + parseInt(data.items.results[i].results[3].number, 10)
                 + parseInt(data.items.results[i].results[4].number, 10) + parseInt(data.items.results[i].results[5].number, 10)
@@ -297,10 +295,10 @@ async function sevenSorok() {
             }
         }
         if (kol175 === 0) {
-            ctx.reply('(7-42) число больше 175 не было 25 раз');
+            ctx.reply('(7-42) число больше 175 не было 30 раз');
         }
         if (kol125 === 0) {
-             ctx.reply('(7-42) число меньше 125 не было 25 раз');
+             ctx.reply('(7-42) число меньше 125 не было 30 раз');
         }
         for (let i = 0; i <= 29; i++) {
             number11 = parseInt(data.items.results[i].results[0].number, 10) + parseInt(data.items.results[i].results[1].number, 10)
@@ -328,11 +326,24 @@ async function sevenSorok() {
                 kol100++;
             }
         }
+        for (let i = 0; i <= 29; i++) {
+           let number123 = parseInt(data3.items.results[i].results[0].number, 10) + parseInt(data3.items.results[i].results[1].number, 10)
+                + parseInt(data3.items.results[i].results[2].number, 10) + parseInt(data3.items.results[i].results[3].number, 10)
+                + parseInt(data3.items.results[i].results[4].number, 10) + parseInt(data3.items.results[i].results[5].number, 10)
+                + parseInt(data3.items.results[i].results[6].number, 10)
+            if (number123 > 200) {
+                kol200++;
+            }
+
+            if (number123 < 100) {
+                kol100++;
+            }
+        }
         if (kol200 === 0) {
-             ctx.reply('(7-42) число больше 200 не было 60 раз');
+             ctx.reply('(7-42) число больше 200 не было 90 раз');
         }
         if (kol100 === 0) {
-            ctx.reply('(7-42) число меньше 100 не было 60 раз');
+            ctx.reply('(7-42) число меньше 100 не было 90 раз');
         }
     } catch (err) {
         console.log(err)
@@ -347,6 +358,8 @@ async function request() {
         const data2 = await response2.json()
         const response3 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-30-09/8/3/")
         const data3 = await response3.json()
+        const response4 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-30-09/8/4/")
+        const data4 = await response4.json()
         let result = 0;
         let result2 = 0;
         let result3 = 0;
@@ -359,7 +372,7 @@ async function request() {
         let result33 = 0;
 
 
-        for (let i = 0; i <= 20; i++) {
+        for (let i = 0; i <= 29; i++) {
             score_dealer = data.items.results[i].results.score_dealer
             score_player = data.items.results[i].results.score_player
             // console.log("игрок " + score_player + " "+ score_dealer +" дилер")
@@ -380,11 +393,19 @@ async function request() {
             if ((score_player === "8") || (score_dealer === "8")) {
                 result2 = result2 + 1;
             }
+        }
+       var result2222=0;
+       for (let i = 0; i <= 6; i++) {
+            score_dealer2 = data2.items.results[i].results.score_dealer
+            score_player2 = data2.items.results[i].results.score_player
+            if ((score_player2 === "8") || (score_dealer2 === "8")) {
+                result2222 = result2222 + 1;
+            }
 
         }
 
-        if (result2 === 0) {
-             ctx.reply('(Битва) Не было 8 уже 30 раздач');
+        if (result2 === 0 && result2222 === 0) {
+             ctx.reply('(Битва) Не было 8 уже 37 раздач');
         }
 
         for (let i = 0; i <= 29; i++) {
@@ -409,10 +430,18 @@ async function request() {
             if (score_player3 === "8") {
                 result444 = result444 + 1;
             }
+        }
+       var result4444=0;
+         for (let i = 0; i <= 24; i++) {
+            score_dealer4 = data4.items.results[i].results.score_dealer
+            score_player4 = data4.items.results[i].results.score_player
+            if (score_player4 === "8") {
+                result4444 = result4444 + 1;
+            }
 
         }
-        if (result44 === 0 && result4 === 0 && result444 === 0) {
-             ctx.reply('(Битва) Не было 8 у игрока уже 90 минут (вертикаль)');
+        if (result44 === 0 && result4 === 0 && result444 === 0 && result4444 === 0) {
+             ctx.reply('(Битва) Не было 8 у игрока уже 115 минут (вертикаль)');
         }
         for (let i = 0; i <= 29; i++) {
             score_dealer = data.items.results[i].results.score_dealer
@@ -435,9 +464,17 @@ async function request() {
                 result555 = result555 + 1;
             }
         }
+       var result5555=0;
+       for (let i = 0; i <= 24; i++) {
+            score_dealer4 = data4.items.results[i].results.score_dealer
+            score_player4 = data4.items.results[i].results.score_player
+            if (score_dealer4 === "8") {
+                result5555 = result5555 + 1;
+            }
+        }
 
-        if (result5 === 0 && result55 === 0 && result555 === 0) {
-             ctx.reply('(Битва) Не было 8 у дилера уже 90 минут (вертикаль)');
+        if (result5 === 0 && result55 === 0 && result555 === 0 && result5555 === 0) {
+             ctx.reply('(Битва) Не было 8 у дилера уже 115 минут (вертикаль)');
         }
         for (let i = 0; i <= 29; i++) {
             score_dealer = data.items.results[i].results.score_dealer
@@ -465,8 +502,17 @@ async function request() {
                 result334 = result334 + 1;
             }
         }
-        if (result3 === 0 && result33 === 0 && result334 === 0) {
-            ctx.reply('(Битва) Не было ничьи 90 минут');
+        var result3344 = 0;
+        for (let i = 0; i <= 29; i++) {
+            score_dealer4 = data4.items.results[i].results.score_dealer
+            score_player4 = data4.items.results[i].results.score_player
+
+            if (score_player4 === score_dealer4) {
+                result3344 = result3344 + 1;
+            }
+        }
+        if (result3 === 0 && result33 === 0 && result334 === 0 && result3344 === 0) {
+            ctx.reply('(Битва) Не было ничьи 120 минут');
         }
 
 
