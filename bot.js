@@ -10,6 +10,7 @@ bot.start((ctx) => {
 bot.help((ctx) => ctx.reply('Напиши /bot '))
 bot.hears('/bot', async (ctx) => {
 
+   
     async function fartuna() {
         try {
             var col = 0;
@@ -24,20 +25,20 @@ bot.hears('/bot', async (ctx) => {
             const data2 = await response2.json()
             const response3 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/7/3/")
             const data3 = await response3.json()
-            for (let i = 0; i <= 17; i++) {
+            for (let i = 0; i <= 4; i++) {
                 colors = data.items.results[i].results[0].color
                 if (colors === 'grey') { col++ }
                 if (colors === 'black') { col2++ }
                 if (colors === 'red') { col3++ }
             }
             if (col === 0) {
-                ctx.reply("(Фартуна) Серого цвета не было 18 раз");
+                ctx.reply("(Фартуна) Серого цвета не было 5 раз");
             }
             if (col2 === 0) {
-                ctx.reply("(Фартуна) Чёрного цвета не было 18 раз");
+                ctx.reply("(Фартуна) Чёрного цвета не было 5 раз");
             }
             if (col3 === 0) {
-                ctx.reply("(Фартуна) Красного цвета не было 18 раз");
+                ctx.reply("(Фартуна) Красного цвета не было 5 раз");
             }
             for (let i = 0; i <= 29; i++) {
                 colors = data.items.results[i].results[0].color
@@ -54,12 +55,44 @@ bot.hears('/bot', async (ctx) => {
             if (kyb === 0 && kyb2 === 0 && kyb3 === 0) {
                 ctx.reply("(Фартуна) Кубка не было 90 раз");
             }
-
+            var green5=0,black5=0,red5=0;
+            for (let i = 0; i <= 4; i++) {
+                colors = data.items.results[i].results[0].color
+                if (colors === 'grey') { green5++ }
+                if (colors === 'black') { black5++ }
+                if (colors === 'red') { red5++ }
+            }
+            if (green5 === 5) {
+                ctx.reply("(Фартуна) Серый цвет был 5 раз подряд");
+            }
+            if (black5 === 5) {
+                ctx.reply("(Фартуна) Чёрный цвет был 5 раз подряд");
+            }
+            if (red5 === 5) {
+                ctx.reply("(Фартуна) Красный цвет был 5 раз подряд");
+            }
+            var num16=0,num712 = 0, num1318;
+            for (let i = 0; i <= 4; i++) {
+                number = data.items.results[i].results[0].number
+                if (number === '1'||number === '2'||number === '3'||number === '4' || number === '5' || number === '6') { num16++ }
+                if (number === '7'||number === '8'||number === '9'||number === '10' || number === '11' || number === '12') { num712++ }
+                if (number === '13'||number === '14'||number === '15'||number === '16' || number === '17' || number === '18') { num1318++ }
+            }
+            if (num16 === 5) {
+                ctx.reply("(Фартуна) Числа 1-6 выпали 5 раз подряд");
+            }
+            if (num712 === 5) {
+                ctx.reply("(Фартуна) Числа 7-12 выпали 5 раз подряд");
+            }
+            if (num1318 === 5) {
+                ctx.reply("(Фартуна) Числа 13-18 выпали 5 раз подряд");
+            }
         }
         catch (err) {
             console.log(err)
         }
     }
+
 
     async function request() {
         try {
