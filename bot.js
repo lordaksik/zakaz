@@ -1,484 +1,1015 @@
- require('dotenv').config();
+require('dotenv').config();
 const { Telegraf } = require('telegraf')
 const fetch = require('node-fetch');
-const bot = new Telegraf('5651735774:AAHkjBk517oMdQc6DN8rrZHVcxFfev18mgQ'||8080)
-bot.start((ctx) => {ctx.reply(`Привет ${ctx.message.from.first_name}`)
-console.log(ctx.message)})
-bot.help((ctx) => ctx.reply('Напиши /bot'))
+
+const bot = new Telegraf('5742102209:AAGyIQb4D3G9I_h7QTukUNtKJ_Hsj0BnrxI' || 8080)
+bot.start((ctx) => {
+    ctx.reply(`Привет ${ctx.message.from.first_name}`)
+    console.log(ctx.message)
+})
+bot.help((ctx) => ctx.reply('Напиши /bot '))
 bot.hears('/bot', async (ctx) => {
-    async function request2(){
-      const response = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-30-09/8/1/")
-      const data = await response.json()
-      mast1=0;
-      mast2=0;
-      mast3=0;
-      mast4=0;
-      one_mast1=0;
-      one_mast2=0;
-      one_mast3=0;
-      one_mast4=0;
-      mastvertPl1=0;
-      mastvertPl2=0;
-      mastvertPl3=0;
-      mastvertPl4=0;
-      mastvertDil1=0;
-      mastvertDil2=0;
-      mastvertDil3=0;
-      mastvertDil4=0;
-      for (let i = 0; i < 10; i++) {
-        score_dealer = data.items.results[i].results.card_dealer.suit
-        score_player = data.items.results[i].results.card_player.suit
-        
-        if(score_dealer!='diamonds' && score_player!='diamonds')
-        mast1=mast1+1;
-   
+    async function fart1win() {
+        try {
+            var now = new Date();
+            var date = (now.getMonth() + 1) + "-" + now.getDate();
+            console.log(date)
+
+            const response = await fetch("https://game3.betgamestv.eu/s/web/v1/game/results/1win?game_id=16&page=1&date=2022-" + date + "&timezone=0")
+            const data = await response.json()
+            var col = 0, col2 = 0, col3 = 0;
+            for (let i = 0; i <= 23; i++) {
+                colors = data.runs[i].results[0].color;
+                console.log(colors)
+                if (colors === 'grey') { col++ }
+                if (colors === 'black') { col2++ }
+                if (colors === 'red') { col3++ }
+            }
+            console.log(col3 + " Серый")
+            if (col === 0) {
+                console.log(col)
+                ctx.reply("(Классик) Серого цвета не было 24 раз");
+            }
+            if (col2 === 0) {
+                console.log(col2)
+                ctx.reply("(Классик) Чёрного цвета не было 24 раз");
+            }
+            if (col3 === 0) {
+                console.log(col3)
+                ctx.reply("(Классик) Красного цвета не было 24 раз");
+            }
+            var green5 = 0, black5 = 0, red5 = 0;
+            for (let i = 0; i <= 6; i++) {
+                colors = data.runs[i].results[0].color;
+                if (colors === 'grey') { green5++ }
+                if (colors === 'black') { black5++ }
+                if (colors === 'red') { red5++ }
+            }
+            if (green5 === 7) {
+                ctx.reply("(Классик) Серый цвет был 7 раз подряд");
+            }
+            if (black5 === 7) {
+                ctx.reply("(Классик) Чёрный цвет был 7 раз подряд");
+            }
+            if (red5 === 7) {
+                ctx.reply("(Классик) Красный цвет был 7 раз подряд");
+            }
+            var num16 = 0, num712 = 0, num1318;
+            for (let i = 0; i <= 6; i++) {
+                number = data.runs[i].results[0].number;
+                console.log(number)
+                if (number === 1 || number === 2 || number === 3 || number === 4 || number === 5 || number === 6) { num16++ }
+                if (number === 7 || number === 8 || number === 9 || number === 10 || number === 11 || number === 12) { num712++ }
+                if (number === 13 || number === 14 || number === 15 || number === 16 || number === 17 || number === 18) { num1318++ }
+            }
+            if (num16 === 7) {
+                ctx.reply("(Классик) Числа 1-6 выпали 7 раз подряд");
+            }
+            if (num712 === 7) {
+                ctx.reply("(Классик) Числа 7-12 выпали 7 раз подряд");
+            }
+            if (num1318 === 7) {
+                ctx.reply("(Классик) Числа 13-18 выпали 7 раз подряд");
+            }
+            var not1 = 0, not2 = 0, not3 = 0;
+            for (let i = 0; i <= 23; i++) {
+                number = data.runs[i].results[0].number;
+                if (number === 1 || number === 2 || number === 3 || number === 4 || number === 5 || number === 6) { not1++ }
+                if (number === 7 || number === 8 || number === 9 || number === 10 || number === 11 || number === 12) { not2++ }
+                if (number === 13 || number === 14 || number === 15 || number === 16 || number === 17 || number === 18) { not3++ }
+            }
+            if (not1 === 0) {
+                ctx.reply("(Классик) Числа 1-6 не выпадали 24 раз подряд");
+            }
+            if (not2 === 0) {
+                ctx.reply("(Классик) Числа 7-12 не выпадали 24 раз подряд");
+            }
+            if (not3 === 0) {
+                ctx.reply("(Классик) Числа 13-18 не выпадали 24 раз подряд");
+            }
+
+        }
+        catch (err) {
+            console.log(err)
+        }
     }
-    
-    if(mast1==10)
-    {ctx.reply('Буби не было 10 раздач')}
-    //diamonds- буби
-    //clubs - крести
-    //spades - пики
-    //hearts - чирва
-    //
-    for (let i = 0; i < 10; i++) {
-       score_dealer = data.items.results[i].results.card_dealer.suit
-       score_player = data.items.results[i].results.card_player.suit
-       if(score_dealer!='clubs' && score_player!='clubs')
-       mast2=mast2+1;
-   
-   }
-   if(mast2==10)
-   {ctx.reply('Крести не было 10 раздач')}
-   for (let i = 0; i < 10; i++) {
-       score_dealer = data.items.results[i].results.card_dealer.suit
-       score_player = data.items.results[i].results.card_player.suit
-       if(score_dealer!='spades' && score_player!='spades')
-       mast3=mast3+1;
-   
-   }
-   
-   if(mast3==10)
-   {ctx.reply('Пики не было 10 раздач')}
-   for (let i = 0; i < 10; i++) {
-       score_dealer = data.items.results[i].results.card_dealer.suit
-       score_player = data.items.results[i].results.card_player.suit
-   
-       if(score_dealer!='hearts' && score_player!='hearts')
-       mast4=mast4+1;
-   
-   }
-   
-   if(mast4==10)
-   {ctx.reply('Чирвы не было 10 раздач')}
-   for (let i = 0; i < 2; i++) {
-       score_dealer = data.items.results[i].results.card_dealer.suit
-       score_player = data.items.results[i].results.card_player.suit
-   
-       if(score_dealer=='diamonds' && score_player=='diamonds')
-       one_mast1=one_mast1+1;
-   
-   }
-   
-   if(one_mast1==2)
-   {ctx.reply('4 буби подряд')}
-   
-   for (let i = 0; i < 2; i++) {
-      score_dealer = data.items.results[i].results.card_dealer.suit
-      score_player = data.items.results[i].results.card_player.suit
-      if(score_dealer=='clubs' && score_player=='clubs')
-      one_mast2=one_mast2+1;
-   
-   }
-   
-   if(one_mast2==2)
-   {ctx.reply('4 крести подряд')}
-   for (let i = 0; i < 2; i++) {
-      score_dealer = data.items.results[i].results.card_dealer.suit
-      score_player = data.items.results[i].results.card_player.suit
-   
-      if(score_dealer=='spades' && score_player=='spades')
-      one_mast3=one_mast3+1;
-   
-   }
-   
-   if(one_mast3==2)
-   {ctx.reply('4 пики подряд')}
-   for (let i = 0; i < 2; i++) {
-      score_dealer = data.items.results[i].results.card_dealer.suit
-      score_player = data.items.results[i].results.card_player.suit
-      if(score_dealer=='hearts' && score_player=='hearts')
-      one_mast4=one_mast4+1;
-   
-   }
-   
-   if(one_mast4==2)
-   {ctx.reply('4 чирвы подряд')}
-   
-   
-   for (let i = 0; i < 10; i++) {
-       score_dealer = data.items.results[i].results.card_dealer.suit
-       score_player = data.items.results[i].results.card_player.suit
-       
-       if(score_dealer!='diamonds')
-       mastvertDil1=mastvertDil1+1;
-   
-   }
-   
-   if(mastvertDil1==10)
-   {ctx.reply('Нет 10 буби у дилера (вертикаль)')}
-   for (let i = 0; i < 10; i++) {
-       score_dealer = data.items.results[i].results.card_dealer.suit
-       score_player = data.items.results[i].results.card_player.suit
-       
-       if(score_dealer!='clubs')
-       mastvertDil2=mastvertDil2+1;
-   
-   }
-   if(mastvertDil2==10)
-   {ctx.reply('Нет 10 крести у дилера (вертикаль)')}
-   for (let i = 0; i < 10; i++) {
-       score_dealer = data.items.results[i].results.card_dealer.suit
-       score_player = data.items.results[i].results.card_player.suit
-       
-       if(score_dealer!='spades')
-       mastvertDil3=mastvertDil3+1;
-   
-   }
-   
-   if(mastvertDil3==10)
-   {ctx.reply('Нет 10 пик у дилера (вертикаль)')}
-   for (let i = 0; i < 10; i++) {
-       score_dealer = data.items.results[i].results.card_dealer.suit
-       score_player = data.items.results[i].results.card_player.suit
-       
-       if(score_dealer!='hearts')
-       mastvertDil4=mastvertDil4+1;
-   
-   }
-   if(mastvertDil4==10)
-   {ctx.reply('Нет 10 чирв у дилера (вертикаль)')}
-   for (let i = 0; i < 10; i++) {
-       score_dealer = data.items.results[i].results.card_dealer.suit
-       score_player = data.items.results[i].results.card_player.suit
-       
-       if(score_player!='diamonds')
-       mastvertPl1=mastvertPl1+1;
-   
-   }
-   if(mastvertPl1==10)
-   {ctx.reply('Нет 10 буби у игрока (вертикаль)')}
-   for (let i = 0; i < 10; i++) {
-       score_dealer = data.items.results[i].results.card_dealer.suit
-       score_player = data.items.results[i].results.card_player.suit
-       
-       if(score_player!='clubs')
-       mastvertPl2=mastvertPl2+1;
-   
-   }
-   
-   if(mastvertPl2==10)
-   {ctx.reply('Нет 10 крестей у игрока (вертикаль)')}
-   for (let i = 0; i < 10; i++) {
-       score_dealer = data.items.results[i].results.card_dealer.suit
-       score_player = data.items.results[i].results.card_player.suit
-       
-       if(score_player!='spades')
-       mastvertPl3=mastvertPl3+1;
-   
-   }
-   
-   if(mastvertPl3==10)
-   {ctx.reply('Нет 10 пик у игрока (вертикаль)')}
-   for (let i = 0; i < 10; i++) {
-       score_dealer = data.items.results[i].results.card_dealer.suit
-       score_player = data.items.results[i].results.card_player.suit
-       
-       if(score_player!='hearts')
-       mastvertPl4=mastvertPl4+1;
-   
-   }
-   if(mastvertPl4==10)
-   {ctx.reply('Нет 10 чирв у игрока (вертикаль)')}
-     
-     
-      //diamonds- буби
- //clubs - крести
- //spades - пики
- //hearts - чирва
- //
-   var black = 0;
-    var red = 0;
-    for (let i = 0; i < 8; i++) {
-       score_dealer = data.items.results[i].results.card_dealer.suit
-       score_player = data.items.results[i].results.card_player.suit
-       
-       if(score_player!='hearts' && score_dealer!='hearts' &&  score_dealer!='diamonds' &&  score_player!='diamonds'){
-       red=red+1;}
-      if(score_player!='spades' &&  score_dealer!='clubs' && score_dealer!='spades' &&  score_player!='clubs'){
-       black=black+1;}
-   
-   } 
-     console.log(red)
-       if(red==8)
-   {ctx.reply('Нет 8 раздач красных карт')}
-     console.log(black + "ку")
-        if(black==8)
-   {ctx.reply('Нет 8 раздач чёрных карт')}
-     
-     var blackpl = 0;
-     var blackdil = 0;
-    var redpl = 0;
-     var reddil = 0;
-    for (let i = 0; i < 16; i++) {
-       score_dealer = data.items.results[i].results.card_dealer.suit
-       score_player = data.items.results[i].results.card_player.suit
-       
-       if(score_player!='hearts' &&  score_player!='diamonds'){
-       redpl=redpl+1;}
-     
-      if(score_dealer!='hearts' &&  score_dealer!='diamonds'){
-       reddil=reddil+1;}
-     
-      if(score_player!='spades' && score_player!='clubs'){
-       blackpl=blackpl+1;}
-     
-     if(score_dealer!='clubs' && score_dealer!='spades'){
-       blackdil=blackdil+1;}
-   
-   } 
-       if(redpl==16)
-   {ctx.reply('Нет 16 красных карт у игрока по вертикали')}
-       if(reddil==0)
-   {ctx.reply('Нет 16 красных карт у игрока по вертикали')}
-     
-       if(blackpl==16)
-   {ctx.reply('Нет 16 чёрных карт у игрока по вертикали')}
-       if(blackdil==16)
-   {ctx.reply('Нет 16 чёрных карт у игрока по вертикали')}
-      
+    async function fartunalong1win() {
+        try {
+            var kyb = 0;
+            var now = new Date();
+            var date = (now.getMonth() + 1) + "-" + now.getDate();
+            console.log(date)
+            var house = now.getHours();
+            console.log(house)
+            if (house > 5) {
+                const response = await fetch("https://game3.betgamestv.eu/s/web/v1/game/results/1win?game_id=16&page=1&date=2022-" + date + "&timezone=0")
+                const data = await response.json()
+                const response2 = await fetch("https://game3.betgamestv.eu/s/web/v1/game/results/1win?game_id=16&page=2&date=2022-" + date + "&timezone=0")
+                const data2 = await response2.json()
+                const response3 = await fetch("https://game3.betgamestv.eu/s/web/v1/game/results/1win?game_id=16&page=3&date=2022-" + date + "&timezone=0")
+                const data3 = await response3.json()
+                const response4 = await fetch("https://game3.betgamestv.eu/s/web/v1/game/results/1win?game_id=16&page=4&date=2022-" + date + "&timezone=0")
+                const data4 = await response4.json()
+                const response5 = await fetch("https://game3.betgamestv.eu/s/web/v1/game/results/1win?game_id=16&page=5&date=2022-" + date + "&timezone=0")
+                const data5 = await response5.json()
+                const response6 = await fetch("https://game3.betgamestv.eu/s/web/v1/game/results/1win?game_id=16&page=6&date=2022-" + date + "&timezone=0")
+                const data6 = await response6.json()
+                const response7 = await fetch("https://game3.betgamestv.eu/s/web/v1/game/results/1win?game_id=16&page=7&date=2022-" + date + "&timezone=0")
+                const data7 = await response7.json()
+                for (let i = 0; i <= 29; i++) {
+                    colors = data.runs[i].results[0].color;
+                    if (colors === 'white') { kyb++ }
+                }
+                for (let i = 0; i <= 29; i++) {
+                    colors2 = data2.runs[i].results[0].color;
+                    if (colors2 === 'white') { kyb++ }
+                }
+                for (let i = 0; i <= 29; i++) {
+                    colors3 = data3.runs[i].results[0].color;
+                    if (colors3 === 'white') { kyb++ }
+                }
+                for (let i = 0; i <= 29; i++) {
+                    colors4 = data4.runs[i].results[0].color;
+                    if (colors4 === 'white') { kyb++ }
+                }
+                for (let i = 0; i <= 29; i++) {
+                    colors5 = data5.runs[i].results[0].color;
+                    if (colors5 === 'white') { kyb++ }
+                }
+                for (let i = 0; i <= 29; i++) {
+                    colors6 = data6.runs[i].results[0].color;
+                    if (colors6 === 'white') { kyb++ }
+                }
+                for (let i = 0; i <= 19; i++) {
+                    colors7 = data7.runs[i].results[0].color;
+                    if (colors7 === 'white') { kyb++ }
+                }
+                if (kyb === 0) {
+                    ctx.reply("(Классик) Кубка не было 200 раз");
+                }
+                var v1 = 0, v2 = 0, v3 = 0, v4 = 0, v5 = 0, v6 = 0, v7 = 0, v8 = 0, v9 = 0, v10 = 0, v11 = 0, v12 = 0, v13 = 0, v14 = 0, v15 = 0, v16 = 0, v17 = 0, v18 = 0;
+                for (let i = 0; i <= 29; i++) {
+                    number = data.runs[i].results[0].number;
+                    if (number === 1) { v1++ }
+                    if (number === 2) { v2++ }
+                    if (number === 3) { v3++ }
+                    if (number === 4) { v4++ }
+                    if (number === 5) { v5++ }
+                    if (number === 6) { v6++ }
+                    if (number === 7) { v7++ }
+                    if (number === 8) { v8++ }
+                    if (number === 9) { v9++ }
+                    if (number === 10) { v10++ }
+                    if (number === 11) { v11++ }
+                    if (number === 12) { v12++ }
+                    if (number === 13) { v13++ }
+                    if (number === 14) { v14++ }
+                    if (number === 15) { v15++ }
+                    if (number === 16) { v16++ }
+                    if (number === 17) { v17++ }
+                    if (number === 18) { v18++ }
+                }
+                for (let i = 0; i <= 29; i++) {
+                    number = data2.runs[i].results[0].number;
+                    if (number === 1) { v1++ }
+                    if (number === 2) { v2++ }
+                    if (number === 3) { v3++ }
+                    if (number === 4) { v4++ }
+                    if (number === 5) { v5++ }
+                    if (number === 6) { v6++ }
+                    if (number === 7) { v7++ }
+                    if (number === 8) { v8++ }
+                    if (number === 9) { v9++ }
+                    if (number === 10) { v10++ }
+                    if (number === 11) { v11++ }
+                    if (number === 12) { v12++ }
+                    if (number === 13) { v13++ }
+                    if (number === 14) { v14++ }
+                    if (number === 15) { v15++ }
+                    if (number === 16) { v16++ }
+                    if (number === 17) { v17++ }
+                    if (number === 18) { v18++ }
+                }
+                for (let i = 0; i <= 29; i++) {
+                    number = data3.runs[i].results[0].number;
+                    if (number === 1) { v1++ }
+                    if (number === 2) { v2++ }
+                    if (number === 3) { v3++ }
+                    if (number === 4) { v4++ }
+                    if (number === 5) { v5++ }
+                    if (number === 6) { v6++ }
+                    if (number === 7) { v7++ }
+                    if (number === 8) { v8++ }
+                    if (number === 9) { v9++ }
+                    if (number === 10) { v10++ }
+                    if (number === 11) { v11++ }
+                    if (number === 12) { v12++ }
+                    if (number === 13) { v13++ }
+                    if (number === 14) { v14++ }
+                    if (number === 15) { v15++ }
+                    if (number === 16) { v16++ }
+                    if (number === 17) { v17++ }
+                    if (number === 18) { v18++ }
+                }
+                for (let i = 0; i <= 29; i++) {
+                    number = data4.runs[i].results[0].number;
+                    if (number === 1) { v1++ }
+                    if (number === 2) { v2++ }
+                    if (number === 3) { v3++ }
+                    if (number === 4) { v4++ }
+                    if (number === 5) { v5++ }
+                    if (number === 6) { v6++ }
+                    if (number === 7) { v7++ }
+                    if (number === 8) { v8++ }
+                    if (number === 9) { v9++ }
+                    if (number === 10) { v10++ }
+                    if (number === 11) { v11++ }
+                    if (number === 12) { v12++ }
+                    if (number === 13) { v13++ }
+                    if (number === 14) { v14++ }
+                    if (number === 15) { v15++ }
+                    if (number === 16) { v16++ }
+                    if (number === 17) { v17++ }
+                    if (number === 18) { v18++ }
+                }
+                for (let i = 0; i <= 29; i++) {
+                    number = data5.runs[i].results[0].number;
+                    if (number === 1) { v1++ }
+                    if (number === 2) { v2++ }
+                    if (number === 3) { v3++ }
+                    if (number === 4) { v4++ }
+                    if (number === 5) { v5++ }
+                    if (number === 6) { v6++ }
+                    if (number === 7) { v7++ }
+                    if (number === 8) { v8++ }
+                    if (number === 9) { v9++ }
+                    if (number === 10) { v10++ }
+                    if (number === 11) { v11++ }
+                    if (number === 12) { v12++ }
+                    if (number === 13) { v13++ }
+                    if (number === 14) { v14++ }
+                    if (number === 15) { v15++ }
+                    if (number === 16) { v16++ }
+                    if (number === 17) { v17++ }
+                    if (number === 18) { v18++ }
+                }
+                for (let i = 0; i <= 29; i++) {
+                    number = data6.runs[i].results[0].number;
+                    if (number === 1) { v1++ }
+                    if (number === 2) { v2++ }
+                    if (number === 3) { v3++ }
+                    if (number === 4) { v4++ }
+                    if (number === 5) { v5++ }
+                    if (number === 6) { v6++ }
+                    if (number === 7) { v7++ }
+                    if (number === 8) { v8++ }
+                    if (number === 9) { v9++ }
+                    if (number === 10) { v10++ }
+                    if (number === 11) { v11++ }
+                    if (number === 12) { v12++ }
+                    if (number === 13) { v13++ }
+                    if (number === 14) { v14++ }
+                    if (number === 15) { v15++ }
+                    if (number === 16) { v16++ }
+                    if (number === 17) { v17++ }
+                    if (number === 18) { v18++ }
+                }
+                for (let i = 0; i <= 19; i++) {
+                    number = data7.runs[i].results[0].number;
+                    if (number === 1) { v1++ }
+                    if (number === 2) { v2++ }
+                    if (number === 3) { v3++ }
+                    if (number === 4) { v4++ }
+                    if (number === 5) { v5++ }
+                    if (number === 6) { v6++ }
+                    if (number === 7) { v7++ }
+                    if (number === 8) { v8++ }
+                    if (number === 9) { v9++ }
+                    if (number === 10) { v10++ }
+                    if (number === 11) { v11++ }
+                    if (number === 12) { v12++ }
+                    if (number === 13) { v13++ }
+                    if (number === 14) { v14++ }
+                    if (number === 15) { v15++ }
+                    if (number === 16) { v16++ }
+                    if (number === 17) { v17++ }
+                    if (number === 18) { v18++ }
+                }
+                if (v1 === 0) { ctx.reply("(Классик) Число 1 не выпадало 200 раз подряд"); }
+                if (v2 === 0) { ctx.reply("(Классик) Число 2 не выпадало 200 раз подряд"); }
+                if (v3 === 0) { ctx.reply("(Классик) Число 3 не выпадало 200 раз подряд"); }
+                if (v4 === 0) { ctx.reply("(Классик) Число 4 не выпадало 200 раз подряд"); }
+                if (v5 === 0) { ctx.reply("(Классик) Число 5 не выпадало 200 раз подряд"); }
+                if (v6 === 0) { ctx.reply("(Классик) Число 6 не выпадало 200 раз подряд"); }
+                if (v7 === 0) { ctx.reply("(Классик) Число 7 не выпадало 200 раз подряд"); }
+                if (v8 === 0) { ctx.reply("(Классик) Число 8 не выпадало 200 раз подряд"); }
+                if (v9 === 0) { ctx.reply("(Классик) Число 9 не выпадало 200 раз подряд"); }
+                if (v10 === 0) { ctx.reply("(Классик) Число 10 не выпадало 200 раз подряд"); }
+                if (v11 === 0) { ctx.reply("(Классик) Число 11 не выпадало 200 раз подряд"); }
+                if (v12 === 0) { ctx.reply("(Классик) Число 12 не выпадало 200 раз подряд"); }
+                if (v13 === 0) { ctx.reply("(Классик) Число 13 не выпадало 200 раз подряд"); }
+                if (v14 === 0) { ctx.reply("(Классик) Число 14 не выпадало 200 раз подряд"); }
+                if (v15 === 0) { ctx.reply("(Классик) Число 15 не выпадало 200 раз подряд"); }
+                if (v16 === 0) { ctx.reply("(Классик) Число 16 не выпадало 200 раз подряд"); }
+                if (v17 === 0) { ctx.reply("(Классик) Число 17 не выпадало 200 раз подряд"); }
+                if (v18 === 0) { ctx.reply("(Классик) Число 18 не выпадало 200 раз подряд"); }
+            }
+        }
+        catch (err) {
+            console.log(err)
+        }
     }
-    function good(){
-      ctx.reply( "Вы запустили Бота на стратегию «Масти» ⚠ Не забудьте поставить особые уведомления на Бота, и ждите сигнала на валуйные ситуации!");
-      ctx.reply( "Удачи! По всем вопросам пишите @BetgamesTV_Admin"); 
-       global.time= setInterval(request2,30000) 
-       }
+    async function fartuna() {
+        try {
+            var col = 0;
+            var col2 = 0;
+            var col3 = 0;
+            var kyb = 0;
+            var kyb2 = 0;
+            var kyb3 = 0;
+            const response = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/7/1/")
+            const data = await response.json()
+            const response2 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/7/2/")
+            const data2 = await response2.json()
+            const response3 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/7/3/")
+            const data3 = await response3.json()
+            for (let i = 0; i <= 23; i++) {
+                colors = data.items.results[i].results[0].color
+                if (colors === 'grey') { col++ }
+                if (colors === 'black') { col2++ }
+                if (colors === 'red') { col3++ }
+            }
+            if (col === 0) {
+                ctx.reply("(Фартуна) Серого цвета не было 24 раз");
+            }
+            if (col2 === 0) {
+                ctx.reply("(Фартуна) Чёрного цвета не было 24 раз");
+            }
+            if (col3 === 0) {
+                ctx.reply("(Фартуна) Красного цвета не было 24 раз");
+            }
+
+            var green5 = 0, black5 = 0, red5 = 0;
+            for (let i = 0; i <= 6; i++) {
+                colors = data.items.results[i].results[0].color
+                if (colors === 'grey') { green5++ }
+                if (colors === 'black') { black5++ }
+                if (colors === 'red') { red5++ }
+            }
+            if (green5 === 7) {
+                ctx.reply("(Фартуна) Серый цвет был 7 раз подряд");
+            }
+            if (black5 === 7) {
+                ctx.reply("(Фартуна) Чёрный цвет был 7 раз подряд");
+            }
+            if (red5 === 7) {
+                ctx.reply("(Фартуна) Красный цвет был 7 раз подряд");
+            }
+            var num16 = 0, num712 = 0, num1318;
+            for (let i = 0; i <= 6; i++) {
+                number = data.items.results[i].results[0].number
+                if (number === '1' || number === '2' || number === '3' || number === '4' || number === '5' || number === '6') { num16++ }
+                if (number === '7' || number === '8' || number === '9' || number === '10' || number === '11' || number === '12') { num712++ }
+                if (number === '13' || number === '14' || number === '15' || number === '16' || number === '17' || number === '18') { num1318++ }
+            }
+            if (num16 === 7) {
+                ctx.reply("(Фартуна) Числа 1-6 выпали 7 раз подряд");
+            }
+            if (num712 === 7) {
+                ctx.reply("(Фартуна) Числа 7-12 выпали 7 раз подряд");
+            }
+            if (num1318 === 7) {
+                ctx.reply("(Фартуна) Числа 13-18 выпали 7 раз подряд");
+            }
+            var not1 = 0, not2 = 0, not3 = 0;
+            for (let i = 0; i <= 23; i++) {
+                number = data.items.results[i].results[0].number
+                if (number === '1' || number === '2' || number === '3' || number === '4' || number === '5' || number === '6') { not1++ }
+                if (number === '7' || number === '8' || number === '9' || number === '10' || number === '11' || number === '12') { not2++ }
+                if (number === '13' || number === '14' || number === '15' || number === '16' || number === '17' || number === '18') { not3++ }
+            }
+            if (not1 === 0) {
+                ctx.reply("(Фартуна) Числа 1-6 не выпадали 24 раз подряд");
+            }
+            if (not2 === 0) {
+                ctx.reply("(Фартуна) Числа 7-12 не выпадали 24 раз подряд");
+            }
+            if (not3 === 0) {
+                ctx.reply("(Фартуна) Числа 13-18 не выпадали 24 раз подряд");
+            }
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+    async function fartunalong() {
+        try {
+            var now = new Date();
+            var date = (now.getMonth() + 1) + "-" + now.getDate();
+            console.log(date)
+            var house = now.getHours();
+            console.log(house)
+            if (house > 5) {
+                var kyb = 0;
+                const response = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/7/1/")
+                const data = await response.json()
+                const response2 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/7/2/")
+                const data2 = await response2.json()
+                const response3 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/7/3/")
+                const data3 = await response3.json()
+                const response4 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/7/4/")
+                const data4 = await response4.json()
+                const response5 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/7/5/")
+                const data5 = await response5.json()
+                const response6 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/7/6/")
+                const data6 = await response6.json()
+                const response7 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/7/7/")
+                const data7 = await response6.json()
+                for (let i = 0; i <= 29; i++) {
+                    colors = data.items.results[i].results[0].color
+                    if (colors === 'white') { kyb++ }
+                }
+                for (let i = 0; i <= 29; i++) {
+                    colors2 = data2.items.results[i].results[0].color
+                    if (colors2 === 'white') { kyb++ }
+                }
+                for (let i = 0; i <= 29; i++) {
+                    colors3 = data3.items.results[i].results[0].color
+                    if (colors3 === 'white') { kyb++ }
+                }
+                for (let i = 0; i <= 29; i++) {
+                    colors4 = data4.items.results[i].results[0].color
+                    if (colors4 === 'white') { kyb++ }
+                }
+                for (let i = 0; i <= 29; i++) {
+                    colors5 = data5.items.results[i].results[0].color
+                    if (colors5 === 'white') { kyb++ }
+                }
+                for (let i = 0; i <= 29; i++) {
+                    colors6 = data6.items.results[i].results[0].color
+                    if (colors6 === 'white') { kyb++ }
+                }
+                for (let i = 0; i <= 19; i++) {
+                    colors7 = data7.items.results[i].results[0].color
+                    if (colors7 === 'white') { kyb++ }
+                }
+                if (kyb === 0) {
+                    ctx.reply("(Фартуна) Кубка не было 200 раз");
+                }
+                var v1 = 0, v2 = 0, v3 = 0, v4 = 0, v5 = 0, v6 = 0, v7 = 0, v8 = 0, v9 = 0, v10 = 0, v11 = 0, v12 = 0, v13 = 0, v14 = 0, v15 = 0, v16 = 0, v17 = 0, v18 = 0;
+                for (let i = 0; i <= 29; i++) {
+                    number = data.items.results[i].results[0].number
+                    if (number === '1') { v1++ }
+                    if (number === '2') { v2++ }
+                    if (number === '3') { v3++ }
+                    if (number === '4') { v4++ }
+                    if (number === '5') { v5++ }
+                    if (number === '6') { v6++ }
+                    if (number === '7') { v7++ }
+                    if (number === '8') { v8++ }
+                    if (number === '9') { v9++ }
+                    if (number === '10') { v10++ }
+                    if (number === '11') { v11++ }
+                    if (number === '12') { v12++ }
+                    if (number === '13') { v13++ }
+                    if (number === '14') { v14++ }
+                    if (number === '15') { v15++ }
+                    if (number === '16') { v16++ }
+                    if (number === '17') { v17++ }
+                    if (number === '18') { v18++ }
+                }
+                for (let i = 0; i <= 29; i++) {
+                    number = data2.items.results[i].results[0].number
+                    if (number === '1') { v1++ }
+                    if (number === '2') { v2++ }
+                    if (number === '3') { v3++ }
+                    if (number === '4') { v4++ }
+                    if (number === '5') { v5++ }
+                    if (number === '6') { v6++ }
+                    if (number === '7') { v7++ }
+                    if (number === '8') { v8++ }
+                    if (number === '9') { v9++ }
+                    if (number === '10') { v10++ }
+                    if (number === '11') { v11++ }
+                    if (number === '12') { v12++ }
+                    if (number === '13') { v13++ }
+                    if (number === '14') { v14++ }
+                    if (number === '15') { v15++ }
+                    if (number === '16') { v16++ }
+                    if (number === '17') { v17++ }
+                    if (number === '18') { v18++ }
+                }
+                for (let i = 0; i <= 29; i++) {
+                    number = data3.items.results[i].results[0].number
+                    if (number === '1') { v1++ }
+                    if (number === '2') { v2++ }
+                    if (number === '3') { v3++ }
+                    if (number === '4') { v4++ }
+                    if (number === '5') { v5++ }
+                    if (number === '6') { v6++ }
+                    if (number === '7') { v7++ }
+                    if (number === '8') { v8++ }
+                    if (number === '9') { v9++ }
+                    if (number === '10') { v10++ }
+                    if (number === '11') { v11++ }
+                    if (number === '12') { v12++ }
+                    if (number === '13') { v13++ }
+                    if (number === '14') { v14++ }
+                    if (number === '15') { v15++ }
+                    if (number === '16') { v16++ }
+                    if (number === '17') { v17++ }
+                    if (number === '18') { v18++ }
+                }
+                for (let i = 0; i <= 29; i++) {
+                    number = data4.items.results[i].results[0].number
+                    if (number === '1') { v1++ }
+                    if (number === '2') { v2++ }
+                    if (number === '3') { v3++ }
+                    if (number === '4') { v4++ }
+                    if (number === '5') { v5++ }
+                    if (number === '6') { v6++ }
+                    if (number === '7') { v7++ }
+                    if (number === '8') { v8++ }
+                    if (number === '9') { v9++ }
+                    if (number === '10') { v10++ }
+                    if (number === '11') { v11++ }
+                    if (number === '12') { v12++ }
+                    if (number === '13') { v13++ }
+                    if (number === '14') { v14++ }
+                    if (number === '15') { v15++ }
+                    if (number === '16') { v16++ }
+                    if (number === '17') { v17++ }
+                    if (number === '18') { v18++ }
+                }
+                for (let i = 0; i <= 29; i++) {
+                    number = data5.items.results[i].results[0].number
+                    if (number === '1') { v1++ }
+                    if (number === '2') { v2++ }
+                    if (number === '3') { v3++ }
+                    if (number === '4') { v4++ }
+                    if (number === '5') { v5++ }
+                    if (number === '6') { v6++ }
+                    if (number === '7') { v7++ }
+                    if (number === '8') { v8++ }
+                    if (number === '9') { v9++ }
+                    if (number === '10') { v10++ }
+                    if (number === '11') { v11++ }
+                    if (number === '12') { v12++ }
+                    if (number === '13') { v13++ }
+                    if (number === '14') { v14++ }
+                    if (number === '15') { v15++ }
+                    if (number === '16') { v16++ }
+                    if (number === '17') { v17++ }
+                    if (number === '18') { v18++ }
+                }
+                for (let i = 0; i <= 29; i++) {
+                    number = data6.items.results[i].results[0].number
+                    if (number === '1') { v1++ }
+                    if (number === '2') { v2++ }
+                    if (number === '3') { v3++ }
+                    if (number === '4') { v4++ }
+                    if (number === '5') { v5++ }
+                    if (number === '6') { v6++ }
+                    if (number === '7') { v7++ }
+                    if (number === '8') { v8++ }
+                    if (number === '9') { v9++ }
+                    if (number === '10') { v10++ }
+                    if (number === '11') { v11++ }
+                    if (number === '12') { v12++ }
+                    if (number === '13') { v13++ }
+                    if (number === '14') { v14++ }
+                    if (number === '15') { v15++ }
+                    if (number === '16') { v16++ }
+                    if (number === '17') { v17++ }
+                    if (number === '18') { v18++ }
+                }
+                for (let i = 0; i <= 19; i++) {
+                    number = data7.items.results[i].results[0].number
+                    if (number === '1') { v1++ }
+                    if (number === '2') { v2++ }
+                    if (number === '3') { v3++ }
+                    if (number === '4') { v4++ }
+                    if (number === '5') { v5++ }
+                    if (number === '6') { v6++ }
+                    if (number === '7') { v7++ }
+                    if (number === '8') { v8++ }
+                    if (number === '9') { v9++ }
+                    if (number === '10') { v10++ }
+                    if (number === '11') { v11++ }
+                    if (number === '12') { v12++ }
+                    if (number === '13') { v13++ }
+                    if (number === '14') { v14++ }
+                    if (number === '15') { v15++ }
+                    if (number === '16') { v16++ }
+                    if (number === '17') { v17++ }
+                    if (number === '18') { v18++ }
+                }
+                if (v1 === 0) { ctx.reply("(Фартуна) Число 1 не выпадало 200 раз подряд"); }
+                if (v2 === 0) { ctx.reply("(Фартуна) Число 2 не выпадало 200 раз подряд"); }
+                if (v3 === 0) { ctx.reply("(Фартуна) Число 3 не выпадало 200 раз подряд"); }
+                if (v4 === 0) { ctx.reply("(Фартуна) Число 4 не выпадало 200 раз подряд"); }
+                if (v5 === 0) { ctx.reply("(Фартуна) Число 5 не выпадало 200 раз подряд"); }
+                if (v6 === 0) { ctx.reply("(Фартуна) Число 6 не выпадало 200 раз подряд"); }
+                if (v7 === 0) { ctx.reply("(Фартуна) Число 7 не выпадало 200 раз подряд"); }
+                if (v8 === 0) { ctx.reply("(Фартуна) Число 8 не выпадало 200 раз подряд"); }
+                if (v9 === 0) { ctx.reply("(Фартуна) Число 9 не выпадало 200 раз подряд"); }
+                if (v10 === 0) { ctx.reply("(Фартуна) Число 10 не выпадало 200 раз подряд"); }
+                if (v11 === 0) { ctx.reply("(Фартуна) Число 11 не выпадало 200 раз подряд"); }
+                if (v12 === 0) { ctx.reply("(Фартуна) Число 12 не выпадало 200 раз подряд"); }
+                if (v13 === 0) { ctx.reply("(Фартуна) Число 13 не выпадало 200 раз подряд"); }
+                if (v14 === 0) { ctx.reply("(Фартуна) Число 14 не выпадало 200 раз подряд"); }
+                if (v15 === 0) { ctx.reply("(Фартуна) Число 15 не выпадало 200 раз подряд"); }
+                if (v16 === 0) { ctx.reply("(Фартуна) Число 16 не выпадало 200 раз подряд"); }
+                if (v17 === 0) { ctx.reply("(Фартуна) Число 17 не выпадало 200 раз подряд"); }
+                if (v18 === 0) { ctx.reply("(Фартуна) Число 18 не выпадало 200 раз подряд"); }
+            }
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+    async function fart60klas() {
+        try {
+            var kyb = 0;
+            var now = new Date();
+            var date = (now.getMonth() + 1) + "-" + now.getDate();
+            console.log(date)
+            var house = now.getHours();
+            const response = await fetch("https://game3.betgamestv.eu/s/web/v1/game/results/1win?game_id=16&page=1&date=2022-" + date + "&timezone=0")
+                const data = await response.json()
+                const response2 = await fetch("https://game3.betgamestv.eu/s/web/v1/game/results/1win?game_id=16&page=2&date=2022-" + date + "&timezone=0")
+                const data2 = await response2.json()
+                const response3 = await fetch("https://game3.betgamestv.eu/s/web/v1/game/results/1win?game_id=16&page=3&date=2022-" + date + "&timezone=0")
+                const data3 = await response3.json()
+            var grench = 0, grenchne = 0, blackch = 0, blackchne = 0, redch = 0, redchne = 0;
+            var c = '5'
+            console.log(parseInt(c, 10) / 2 == 0)
+            console.log(parseInt(c, 10) % 2 != 0)
+            for (let i = 0; i <= 29; i++) {
+                colors = data.runs[i].results[0].color;
+                number = data.runs[i].results[0].number;
+                if (colors === 'grey' && (number === 2 ||number === 4 ||number === 6 ||number === 8 ||number === 10 ||number === 12 ||number === 14 ||number === 16 ||number === 18 )) { grench++ }
+                if (colors === 'grey' && (number === 1 ||number === 3 ||number === 5 ||number === 7 ||number === 9 ||number === 11 ||number === 13 ||number === 15 ||number === 17 )) { grenchne++ }
+                if (colors === 'black' && (number === 2 ||number === 4 ||number === 6 ||number === 8 ||number === 10 ||number === 12 ||number === 14 ||number === 16 ||number === 18 )) { blackch++ }
+                if (colors === 'black' && (number === 1 ||number === 3 ||number === 5 ||number === 7 ||number === 9 ||number === 11 ||number === 13 ||number === 15 ||number === 17 )) { blackchne++ }
+                if (colors === 'red' && (number === 2 ||number === 4 ||number === 6 ||number === 8 ||number === 10 ||number === 12 ||number === 14 ||number === 16 ||number === 18 )) { redch++ }
+                if (colors === 'red' && (number === 1 ||number === 3 ||number === 5 ||number === 7 ||number === 9 ||number === 11 ||number === 13 ||number === 15 ||number === 17 )) { redchne++ }
+            }
+            for (let i = 0; i <= 29; i++) {
+                colors = data2.runs[i].results[0].color;
+                number = data2.runs[i].results[0].number;
+                if (colors === 'grey' && (number === 2 ||number === 4 ||number === 6 ||number === 8 ||number === 10 ||number === 12 ||number === 14 ||number === 16 ||number === 18 )) { grench++ }
+                if (colors === 'grey' && (number === 1 ||number === 3 ||number === 5 ||number === 7 ||number === 9 ||number === 11 ||number === 13 ||number === 15 ||number === 17 )) { grenchne++ }
+                if (colors === 'black' && (number === 2 ||number === 4 ||number === 6 ||number === 8 ||number === 10 ||number === 12 ||number === 14 ||number === 16 ||number === 18 )) { blackch++ }
+                if (colors === 'black' && (number === 1 ||number === 3 ||number === 5 ||number === 7 ||number === 9 ||number === 11 ||number === 13 ||number === 15 ||number === 17 )) { blackchne++ }
+                if (colors === 'red' && (number === 2 ||number === 4 ||number === 6 ||number === 8 ||number === 10 ||number === 12 ||number === 14 ||number === 16 ||number === 18 )) { redch++ }
+                if (colors === 'red' && (number === 1 ||number === 3 ||number === 5 ||number === 7 ||number === 9 ||number === 11 ||number === 13 ||number === 15 ||number === 17 )) { redchne++ }
+            }
+            for (let i = 0; i <= 16; i++) {
+                colors = data2.runs[i].results[0].color;
+                number = data2.runs[i].results[0].number;
+                if (colors === 'grey' && (number === 2 ||number === 4 ||number === 6 ||number === 8 ||number === 10 ||number === 12 ||number === 14 ||number === 16 ||number === 18 )) { grench++ }
+                if (colors === 'grey' && (number === 1 ||number === 3 ||number === 5 ||number === 7 ||number === 9 ||number === 11 ||number === 13 ||number === 15 ||number === 17 )) { grenchne++ }
+                if (colors === 'black' && (number === 2 ||number === 4 ||number === 6 ||number === 8 ||number === 10 ||number === 12 ||number === 14 ||number === 16 ||number === 18 )) { blackch++ }
+                if (colors === 'black' && (number === 1 ||number === 3 ||number === 5 ||number === 7 ||number === 9 ||number === 11 ||number === 13 ||number === 15 ||number === 17 )) { blackchne++ }
+                if (colors === 'red' && (number === 2 ||number === 4 ||number === 6 ||number === 8 ||number === 10 ||number === 12 ||number === 14 ||number === 16 ||number === 18 )) { redch++ }
+                if (colors === 'red' && (number === 1 ||number === 3 ||number === 5 ||number === 7 ||number === 9 ||number === 11 ||number === 13 ||number === 15 ||number === 17 )) { redchne++ }
+            }
+            if (grench === 0) {
+                ctx.reply("(Классик) Серый чётный не был 77 раз подряд")
+            }
+            if (grenchne === 0) {
+                ctx.reply("(Классик) Серый нечётный не был 77 раз подряд")
+            }
+            if (redch === 0) {
+                ctx.reply("(Классик) Красный чётный не был 77 раз подряд")
+            }
+            if (redchne === 0) {
+                ctx.reply("(Классик) Красный нечётный не был 77 раз подряд")
+            }
+            if (blackch === 0) {
+                ctx.reply("(Классик) Чёрный чётный не был 77 раз подряд")
+            }
+            if (blackchne === 0) {
+                ctx.reply("(Классик) Чёрный нечётный не был 77 раз подряд")
+            }
 
 
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+    async function fart60() {
+        try {
+            const response = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-30-09/7/1/")
+            const data = await response.json()
+            const response2 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-30-09/7/2/")
+            const data2 = await response2.json()
+            const response3 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-30-09/7/3/")
+            const data3 = await response3.json()
+            var grench = 0, grenchne = 0, blackch = 0, blackchne = 0, redch = 0, redchne = 0;
+            var c = '5'
+            console.log(parseInt(c, 10) / 2 == 0)
+            console.log(parseInt(c, 10) % 2 != 0)
+            for (let i = 0; i <= 29; i++) {
+                colors = data.items.results[i].results[0].color
+                number = data.items.results[i].results[0].number
+                if (colors === 'grey' && (number === '2' ||number === '4' ||number === '6' ||number === '8' ||number === '10' ||number === '12' ||number === '14' ||number === '16' ||number === '18' )) { grench++ }
+                if (colors === 'grey' && (number === '1' ||number === '3' ||number === '5' ||number === '7' ||number === '9' ||number === '11' ||number === '13' ||number === '15' ||number === '17' )) { grenchne++ }
+                if (colors === 'black' && (number === '2' ||number === '4' ||number === '6' ||number === '8' ||number === '10' ||number === '12' ||number === '14' ||number === '16' ||number === '18' )) { blackch++ }
+                if (colors === 'black' && (number === '1' ||number === '3' ||number === '5' ||number === '7' ||number === '9' ||number === '11' ||number === '13' ||number === '15' ||number === '17' )) { blackchne++ }
+                if (colors === 'red' && (number === '2' ||number === '4' ||number === '6' ||number === '8' ||number === '10' ||number === '12' ||number === '14' ||number === '16' ||number === '18' )) { redch++ }
+                if (colors === 'red' && (number === '1' ||number === '3' ||number === '5' ||number === '7' ||number === '9' ||number === '11' ||number === '13' ||number === '15' ||number === '17' )) { redchne++ }
+            }
+            for (let i = 0; i <= 29; i++) {
+                colors = data2.items.results[i].results[0].color
+                number = data2.items.results[i].results[0].number
+                if (colors === 'grey' && (number === '2' ||number === '4' ||number === '6' ||number === '8' ||number === '10' ||number === '12' ||number === '14' ||number === '16' ||number === '18' )) { grench++ }
+                if (colors === 'grey' && (number === '1' ||number === '3' ||number === '5' ||number === '7' ||number === '9' ||number === '11' ||number === '13' ||number === '15' ||number === '17' )) { grenchne++ }
+                if (colors === 'black' && (number === '2' ||number === '4' ||number === '6' ||number === '8' ||number === '10' ||number === '12' ||number === '14' ||number === '16' ||number === '18' )) { blackch++ }
+                if (colors === 'black' && (number === '1' ||number === '3' ||number === '5' ||number === '7' ||number === '9' ||number === '11' ||number === '13' ||number === '15' ||number === '17' )) { blackchne++ }
+                if (colors === 'red' && (number === '2' ||number === '4' ||number === '6' ||number === '8' ||number === '10' ||number === '12' ||number === '14' ||number === '16' ||number === '18' )) { redch++ }
+                if (colors === 'red' && (number === '1' ||number === '3' ||number === '5' ||number === '7' ||number === '9' ||number === '11' ||number === '13' ||number === '15' ||number === '17' )) { redchne++ }
+            }
+            for (let i = 0; i <= 16; i++) {
+                colors = data3.items.results[i].results[0].color
+                number = data3.items.results[i].results[0].number
+                if (colors === 'grey' && (number === '2' ||number === '4' ||number === '6' ||number === '8' ||number === '10' ||number === '12' ||number === '14' ||number === '16' ||number === '18' )) { grench++ }
+                if (colors === 'grey' && (number === '1' ||number === '3' ||number === '5' ||number === '7' ||number === '9' ||number === '11' ||number === '13' ||number === '15' ||number === '17' )) { grenchne++ }
+                if (colors === 'black' && (number === '2' ||number === '4' ||number === '6' ||number === '8' ||number === '10' ||number === '12' ||number === '14' ||number === '16' ||number === '18' )) { blackch++ }
+                if (colors === 'black' && (number === '1' ||number === '3' ||number === '5' ||number === '7' ||number === '9' ||number === '11' ||number === '13' ||number === '15' ||number === '17' )) { blackchne++ }
+                if (colors === 'red' && (number === '2' ||number === '4' ||number === '6' ||number === '8' ||number === '10' ||number === '12' ||number === '14' ||number === '16' ||number === '18' )) { redch++ }
+                if (colors === 'red' && (number === '1' ||number === '3' ||number === '5' ||number === '7' ||number === '9' ||number === '11' ||number === '13' ||number === '15' ||number === '17' )) { redchne++ }
+            }
+            if (grench === 0) {
+                ctx.reply("(Фартуна) Серый чётный не был 77 раз подряд")
+            }
+            if (grenchne === 0) {
+                ctx.reply("(Фартуна) Серый нечётный не был 77 раз подряд")
+            }
+            if (redch === 0) {
+                ctx.reply("(Фартуна) Красный чётный не был 77 раз подряд")
+            }
+            if (redchne === 0) {
+                ctx.reply("(Фартуна) Красный нечётный не был 77 раз подряд")
+            }
+            if (blackch === 0) {
+                ctx.reply("(Фартуна) Чёрный чётный не был 77 раз подряд")
+            }
+            if (blackchne === 0) {
+                ctx.reply("(Фартуна) Чёрный нечётный не был 77 раз подряд")
+            }
 
-good()}
+
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+    async function request() {
+        try {
+            const response = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-30-09/8/1/")
+            const data = await response.json()
+            const response2 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-30-09/8/2/")
+            const data2 = await response2.json()
+            const response3 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-30-09/8/3/")
+            const data3 = await response3.json()
+            const response4 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-30-09/8/4/")
+            const data4 = await response4.json()
+            let result = 0;
+            let result2 = 0;
+            let result3 = 0;
+            let result4 = 0;
+            let result44 = 0;
+            let result444 = 0;
+            let result5 = 0;
+            let result55 = 0;
+            let result555 = 0;
+            let result33 = 0;
+            let fir = 0;
+            for (let i = 0; i <= 15; i++) {
+                score_dealer = data.items.results[i].results.score_dealer
+                score_player = data.items.results[i].results.score_player
+
+                if ((parseInt(score_player, 10) === 11) || (parseInt(score_dealer, 10) === 11) || (parseInt(score_player, 10) === 12) || (parseInt(score_dealer, 10) === 12) ||
+                    (parseInt(score_player, 10) === 13) || (parseInt(score_dealer, 10) === 13)) { fir = fir + 1; }
+            }
+            console.log(fir + ' фигурок')
+            if (fir === 0) { ctx.reply('Фигурок не было 16 раздач'); }
+            let mast1 = 0;
+            let mast2 = 0;
+            let mast3 = 0;
+            let mast4 = 0;
+            for (let i = 0; i < 16; i++) {
+                score_dealer = data.items.results[i].results.card_dealer.suit
+                score_player = data.items.results[i].results.card_player.suit
+
+                if (score_dealer != 'diamonds' && score_player != 'diamonds') { mast1 = mast1 + 1; }
+                if (score_dealer != 'clubs' && score_player != 'clubs') { mast2 = mast2 + 1; }
+                if (score_dealer != 'spades' && score_player != 'spades') { mast3 = mast3 + 1; }
+                if (score_dealer != 'hearts' && score_player != 'hearts') { mast4 = mast4 + 1; }
+
+            }
+            console.log(mast1 + ' буби не было раздач')
+            if (mast1 === 16) { ctx.reply('Буби не было 16 раздач') }
+            //diamonds- буби
+            //clubs - крести
+            //spades - пики
+            //hearts - чирва
+            //
+            if (mast2 === 16) { ctx.reply('Крести не было 16 раздач') }
+
+            if (mast3 === 16) { ctx.reply('Пики не было 16 раздач') }
+
+            if (mast4 === 16) { ctx.reply('Чирвы не было 16 раздач') }
+            for (let i = 0; i <= 29; i++) {
+                score_dealer = data.items.results[i].results.score_dealer
+                score_player = data.items.results[i].results.score_player
+                // console.log("игрок " + score_player + " "+ score_dealer +" дилер")
+                if ((score_player === "3" && (score_dealer === "2" || score_dealer === "8" || score_dealer === "3"))
+                    || (score_player === "13" && (score_dealer === "13" || score_dealer === "8" || score_dealer === "14"))
+                    || (score_player === score_dealer) || (score_player === "8") || (score_dealer === "8")) {
+                    result = result + 1;
+                }
+            }
+            for (let i = 0; i <= 4; i++) {
+                score_dealer = data2.items.results[i].results.score_dealer
+                score_player = data2.items.results[i].results.score_player
+                // console.log("игрок " + score_player + " "+ score_dealer +" дилер")
+                if ((score_player === "3" && (score_dealer === "2" || score_dealer === "8" || score_dealer === "3"))
+                    || (score_player === "13" && (score_dealer === "13" || score_dealer === "8" || score_dealer === "14"))
+                    || (score_player === score_dealer) || (score_player === "8") || (score_dealer === "8")) {
+                    result = result + 1;
+                }
+            }
+            console.log(typeof score_dealer)
+            if (result === 0) {
+                ctx.reply('(Битва) Больших кэфов давно не было 35 минут');
+            }
+
+            for (let i = 0; i <= 29; i++) {
+                score_dealer = data.items.results[i].results.score_dealer
+                score_player = data.items.results[i].results.score_player
+                if ((score_player === "8") || (score_dealer === "8")) {
+                    result2 = result2 + 1;
+                }
+            }
+            var result2222 = 0;
+            for (let i = 0; i <= 15; i++) {
+                score_dealer2 = data2.items.results[i].results.score_dealer
+                score_player2 = data2.items.results[i].results.score_player
+                if ((score_player2 === "8") || (score_dealer2 === "8")) {
+                    result2222 = result2222 + 1;
+                }
+
+            }
+
+            if (result2 === 0 && result2222 === 0) {
+                ctx.reply('(Битва) Не было 8 уже 46 раздач');
+            }
+
+            for (let i = 0; i <= 29; i++) {
+                score_dealer = data.items.results[i].results.score_dealer
+                score_player = data.items.results[i].results.score_player
+                if (score_player === "8") {
+                    result4 = result4 + 1;
+                }
+
+            }
+            for (let i = 0; i <= 29; i++) {
+                score_dealer2 = data2.items.results[i].results.score_dealer
+                score_player2 = data2.items.results[i].results.score_player
+                if (score_player2 === "8") {
+                    result44 = result44 + 1;
+                }
+
+            }
+            for (let i = 0; i <= 29; i++) {
+                score_dealer3 = data3.items.results[i].results.score_dealer
+                score_player3 = data3.items.results[i].results.score_player
+                if (score_player3 === "8") {
+                    result444 = result444 + 1;
+                }
+            }
+            var result4444 = 0;
+            for (let i = 0; i <= 24; i++) {
+                score_dealer4 = data4.items.results[i].results.score_dealer
+                score_player4 = data4.items.results[i].results.score_player
+                if (score_player4 === "8") {
+                    result4444 = result4444 + 1;
+                }
+
+            }
+            if (result44 === 0 && result4 === 0 && result444 === 0 && result4444 === 0) {
+                ctx.reply('(Битва) Не было 8 у игрока уже 115 минут (вертикаль)');
+            }
+            for (let i = 0; i <= 29; i++) {
+                score_dealer = data.items.results[i].results.score_dealer
+                score_player = data.items.results[i].results.score_player
+                if (score_dealer === "8") {
+                    result5 = result5 + 1;
+                }
+            }
+            for (let i = 0; i <= 29; i++) {
+                score_dealer2 = data2.items.results[i].results.score_dealer
+                score_player2 = data2.items.results[i].results.score_player
+                if (score_dealer2 === "8") {
+                    result55 = result55 + 1;
+                }
+            }
+            for (let i = 0; i <= 29; i++) {
+                score_dealer3 = data3.items.results[i].results.score_dealer
+                score_player3 = data3.items.results[i].results.score_player
+                if (score_dealer3 === "8") {
+                    result555 = result555 + 1;
+                }
+            }
+            var result5555 = 0;
+            for (let i = 0; i <= 24; i++) {
+                score_dealer4 = data4.items.results[i].results.score_dealer
+                score_player4 = data4.items.results[i].results.score_player
+                if (score_dealer4 === "8") {
+                    result5555 = result5555 + 1;
+                }
+            }
+
+            if (result5 === 0 && result55 === 0 && result555 === 0 && result5555 === 0) {
+                ctx.reply('(Битва) Не было 8 у дилера уже 115 минут (вертикаль)');
+            }
+            for (let i = 0; i <= 29; i++) {
+                score_dealer = data.items.results[i].results.score_dealer
+                score_player = data.items.results[i].results.score_player
+
+                if (score_player === score_dealer) {
+                    result3 = result3 + 1;
+                }
+            }
+
+            for (let i = 0; i <= 29; i++) {
+                score_dealer2 = data2.items.results[i].results.score_dealer
+                score_player2 = data2.items.results[i].results.score_player
+
+                if (score_player2 === score_dealer2) {
+                    result33 = result33 + 1;
+                }
+            }
+            var result334 = 0;
+            for (let i = 0; i <= 29; i++) {
+                score_dealer3 = data3.items.results[i].results.score_dealer
+                score_player3 = data3.items.results[i].results.score_player
+
+                if (score_player3 === score_dealer3) {
+                    result334 = result334 + 1;
+                }
+            }
+            var result3344 = 0;
+            for (let i = 0; i <= 29; i++) {
+                score_dealer4 = data4.items.results[i].results.score_dealer
+                score_player4 = data4.items.results[i].results.score_player
+
+                if (score_player4 === score_dealer4) {
+                    result3344 = result3344 + 1;
+                }
+            }
+            if (result3 === 0 && result33 === 0 && result334 === 0 && result3344 === 0) {
+                ctx.reply('(Битва) Не было ничьи 122 минут');
+            }
+
+
+        } catch (err) {
+            console.log(err)
+        }
+    }
+    function good() {
+        ctx.reply("Вы запустили Бота на заказ ⚠ Не забудьте поставить особые уведомления на Бота, и ждите сигнала на валуйные ситуации!");
+        ctx.reply("Удачи! По всем вопросам пишите @BetgamesTV_Admin");
+        ctx.reply('Бот отслежки запущен!')
+        global.time = setInterval(request, 40000)
+        global.time4 = setInterval(fartuna, 90000)
+        global.timer = setInterval(fartunalong, 90000)
+        global.time5 = setInterval(fart1win, 90000)
+        global.time6 = setInterval(fartunalong1win, 90000)
+        global.time7 = setInterval(fart60, 90000)
+        global.time8 = setInterval(fart60klas, 90000)
+
+    }
+    good()
+}
 )
 bot.hears('/end', async (ctx) => {
-   try {
-      clearInterval(global.time);
-  
-      ctx.reply("Пока");  
-    } catch(err) {
-      ctx.reply("Этот бот и так выключен");    
-    } 
+    try {
+        clearInterval(time);
+        clearInterval(time4);
+        clearInterval(timer);
+        clearInterval(time5);
+        clearInterval(time6);
+        clearInterval(time7);
+        clearInterval(time8);
+        ctx.reply("Пока");
+    } catch (err) {
+        ctx.reply("Пока");
+    }
 })
+
 bot.launch()
-
-async function request24(){
-   const response = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-30-09/8/1/")
-   const data = await response.json()
-   mast1=0;
-   mast2=0;
-   mast3=0;
-   mast4=0;
-   one_mast1=0;
-   one_mast2=0;
-   one_mast3=0;
-   one_mast4=0;
-   mastvertPl1=0;
-   mastvertPl2=0;
-   mastvertPl3=0;
-   mastvertPl4=0;
-   mastvertDil1=0;
-   mastvertDil2=0;
-   mastvertDil3=0;
-   mastvertDil4=0;
-   for (let i = 0; i < 3; i++) {
-     score_dealer = data.items.results[i].results.card_dealer.suit
-     score_player = data.items.results[i].results.card_player.suit
-     
-     if(score_dealer!='diamonds' && score_player!='diamonds')
-     mast1=mast1+1;
-
- }
- 
- if(mast1==3)
- {ctx.reply('Буби не было 6 карты')}
- //diamonds- буби
- //clubs - крести
- //spades - пики
- //hearts - чирва
- //
- for (let i = 0; i < 3; i++) {
-    score_dealer = data.items.results[i].results.card_dealer.suit
-    score_player = data.items.results[i].results.card_player.suit
-    if(score_dealer!='clubs' && score_player!='clubs')
-    mast2=mast2+1;
-
-}
-if(mast2==3)
-{ctx.reply('Крести не было 6 карты')}
-for (let i = 0; i < 3; i++) {
-    score_dealer = data.items.results[i].results.card_dealer.suit
-    score_player = data.items.results[i].results.card_player.suit
-    if(score_dealer!='spades' && score_player!='spades')
-    mast3=mast3+1;
-
-}
-
-if(mast3==3)
-{ctx.reply('Пики не было 6 карты')}
-for (let i = 0; i < 3; i++) {
-    score_dealer = data.items.results[i].results.card_dealer.suit
-    score_player = data.items.results[i].results.card_player.suit
-
-    if(score_dealer!='hearts' && score_player!='hearts')
-    mast4=mast4+1;
-
-}
-
-if(mast4==3)
-{ctx.reply('Чирвы не было 6 карты')}
-for (let i = 0; i < 2; i++) {
-    score_dealer = data.items.results[i].results.card_dealer.suit
-    score_player = data.items.results[i].results.card_player.suit
-
-    if(score_dealer=='diamonds' && score_player=='diamonds')
-    one_mast1=one_mast1+1;
-
-}
-
-if(one_mast1==2)
-{ctx.reply('4 буби подряд')}
-
-for (let i = 0; i < 2; i++) {
-   score_dealer = data.items.results[i].results.card_dealer.suit
-   score_player = data.items.results[i].results.card_player.suit
-   if(score_dealer=='clubs' && score_player=='clubs')
-   one_mast2=one_mast2+1;
-
-}
-
-if(one_mast2==2)
-{ctx.reply('4 крести подряд')}
-for (let i = 0; i < 2; i++) {
-   score_dealer = data.items.results[i].results.card_dealer.suit
-   score_player = data.items.results[i].results.card_player.suit
-
-   if(score_dealer=='spades' && score_player=='spades')
-   one_mast3=one_mast3+1;
-
-}
-
-if(one_mast3==2)
-{ctx.reply('4 пики подряд')}
-for (let i = 0; i < 2; i++) {
-   score_dealer = data.items.results[i].results.card_dealer.suit
-   score_player = data.items.results[i].results.card_player.suit
-   if(score_dealer=='hearts' && score_player=='hearts')
-   one_mast4=one_mast4+1;
-
-}
-
-if(one_mast4==2)
-{ctx.reply('4 чирвы подряд')}
-
-
-for (let i = 0; i < 8; i++) {
-    score_dealer = data.items.results[i].results.card_dealer.suit
-    score_player = data.items.results[i].results.card_player.suit
-    
-    if(score_dealer!='diamonds')
-    mastvertDil1=mastvertDil1+1;
-
-}
-
-if(mastvertDil1==8)
-{ctx.reply('нет 8 буби у дилера')}
-for (let i = 0; i < 8; i++) {
-    score_dealer = data.items.results[i].results.card_dealer.suit
-    score_player = data.items.results[i].results.card_player.suit
-    
-    if(score_dealer!='clubs')
-    mastvertDil2=mastvertDil2+1;
-
-}
-if(mastvertDil2==8)
-{ctx.reply('нет 8 крести у дилера')}
-for (let i = 0; i < 8; i++) {
-    score_dealer = data.items.results[i].results.card_dealer.suit
-    score_player = data.items.results[i].results.card_player.suit
-    
-    if(score_dealer!='spades')
-    mastvertDil3=mastvertDil3+1;
-
-}
-
-if(mastvertDil3==8)
-{ctx.reply('нет 8 пик у дилера')}
-for (let i = 0; i < 8; i++) {
-    score_dealer = data.items.results[i].results.card_dealer.suit
-    score_player = data.items.results[i].results.card_player.suit
-    
-    if(score_dealer!='hearts')
-    mastvertDil4=mastvertDil4+1;
-
-}
-if(mastvertDil4==8)
-{ctx.reply('нет 8 чирв у дилера')}
-for (let i = 0; i < 8; i++) {
-    score_dealer = data.items.results[i].results.card_dealer.suit
-    score_player = data.items.results[i].results.card_player.suit
-    
-    if(score_player!='diamonds')
-    mastvertPl1=mastvertPl1+1;
-
-}
-if(mastvertPl1==8)
-{ctx.reply('нет 8 буби у игрока')}
-for (let i = 0; i < 8; i++) {
-    score_dealer = data.items.results[i].results.card_dealer.suit
-    score_player = data.items.results[i].results.card_player.suit
-    
-    if(score_player!='clubs')
-    mastvertPl2=mastvertPl2+1;
-
-}
-
-if(mastvertPl2==8)
-{ctx.reply('нет 8 крестей у игрока')}
-for (let i = 0; i < 8; i++) {
-    score_dealer = data.items.results[i].results.card_dealer.suit
-    score_player = data.items.results[i].results.card_player.suit
-    
-    if(score_player!='spades')
-    mastvertPl3=mastvertPl3+1;
-
-}
-
-if(mastvertPl3==8)
-{ctx.reply('нет 8 пик у игрока')}
-for (let i = 0; i < 8; i++) {
-    score_dealer = data.items.results[i].results.card_dealer.suit
-    score_player = data.items.results[i].results.card_player.suit
-    
-    if(score_player!='hearts')
-    mastvertPl4=mastvertPl4+1;
-
-}
-console.log(mastvertPl4);
-if(mastvertPl4==8)
-{ctx.reply('нет 8 чирв у игрока')}
-}
-
- //diamonds- буби
- //clubs - крести
- //spades - пики
- //hearts - чирва
- //
-
