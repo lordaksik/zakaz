@@ -54,7 +54,7 @@ bot.hears('/bot', async (ctx) => {
             if (red5 === 7) {
                 ctx.reply("(Классик) Красный цвет был 7 раз подряд");
             }
-            var num16 = 0, num712 = 0, num1318;
+            var num16 = 0, num712 = 0, num1318=0;
             for (let i = 0; i <= 6; i++) {
                 number = data.runs[i].results[0].number;
                 console.log(number)
@@ -365,7 +365,7 @@ bot.hears('/bot', async (ctx) => {
             if (red5 === 7) {
                 ctx.reply("(Фартуна) Красный цвет был 7 раз подряд");
             }
-            var num16 = 0, num712 = 0, num1318;
+            var num16 = 0, num712 = 0, num1318=0;
             for (let i = 0; i <= 6; i++) {
                 number = data.items.results[i].results[0].number
                 if (number === '1' || number === '2' || number === '3' || number === '4' || number === '5' || number === '6') { num16++ }
@@ -424,7 +424,7 @@ bot.hears('/bot', async (ctx) => {
                 const response6 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/7/6/")
                 const data6 = await response6.json()
                 const response7 = await fetch("https://betgames9.betgames.tv/web/v2/games/results/testpartner/en/0/2020-27-07/7/7/")
-                const data7 = await response6.json()
+                const data7 = await response7.json()
                 for (let i = 0; i <= 29; i++) {
                     colors = data.items.results[i].results[0].color
                     if (colors === 'white') { kyb++ }
